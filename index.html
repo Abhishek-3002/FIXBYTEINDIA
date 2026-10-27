@@ -120,7 +120,33 @@ body.light .join-form-shell{background:rgba(255,255,255,.52)}body.light .join-me
 @media(max-width:440px){.build-scene{min-height:290px}.scene-device{width:86%;transform:scale(.88)}.scene-code{font-size:7px;line-height:1.6;padding:6px}.code-left{top:7%}.code-right{bottom:8%}.scene-floating{font-size:7px;padding:6px}.float-three{top:70%}.device-screen{min-height:165px}.screen-hero{min-height:112px}.screen-art{height:90px}.art-sphere{width:53px;height:53px}.art-ring{width:78px;height:28px}.build-steps{gap:8px}.build-step{padding:12px 10px}}
 @media(prefers-reduced-motion:reduce){.build-pulse,.device-lid,.scene-orbit,.art-sphere,.art-ring,.art-cube,.scene-code,.scene-floating{animation:none!important}.build-step{transition:none}}
 body.light .build-story{background:linear-gradient(145deg,#11172b,#1c2140 52%,#123b3e);color:#f4f7ff}
-</style></head>
+/* White-theme 3D process showcase and checked-stage labels */
+.build-story{background:radial-gradient(ellipse at 78% 0%,#eef1ff 0,transparent 34%),linear-gradient(145deg,#ffffff,#f7f8fc 62%,#f1fbf9)!important;color:#172033!important;border:1px solid #e0e5ef!important;box-shadow:0 22px 70px rgba(28,39,72,.09)}
+.build-story .build-stars{opacity:.35;background-image:radial-gradient(#7e8bb4 1px,transparent 1px),radial-gradient(#7bcfc1 1px,transparent 1px)}
+.build-story .build-kicker,.build-story .build-stage-label,.build-story .build-progress{color:#64708a}
+.build-story .build-intro h2{color:#172033}.build-story .build-intro>p,.build-story p{color:#657087}
+.build-story .build-stage{background:linear-gradient(145deg,#fff,#f7f9ff);border-color:#dfe5f0;box-shadow:0 18px 48px rgba(32,45,80,.09)}
+.build-story .build-stage-label{border-bottom-color:#e4e8f1}.build-story .build-live{color:#087f70}
+.build-story .build-scene{background:radial-gradient(ellipse at 50% 66%,rgba(125,143,230,.16),transparent 48%),linear-gradient(180deg,#f8faff,#eaf0fa)}
+.build-story .scene-grid{opacity:.5;background-image:linear-gradient(#9daed522 1px,transparent 1px),linear-gradient(90deg,#9daed522 1px,transparent 1px)}
+.build-story .scene-orbit{border-color:#9d9fe855}.build-story .orbit-two{border-color:#54cdbb66}
+.build-story .scene-code{color:#45516d;background:rgba(255,255,255,.9);border-color:#dbe2f1;box-shadow:0 12px 28px #27375a12}
+.build-story .scene-device{filter:drop-shadow(0 24px 22px rgba(48,62,100,.2))}
+.build-story .build-step{background:linear-gradient(145deg,#fff,#f7f9fd);border-color:#e0e6f0;box-shadow:0 8px 24px rgba(30,43,74,.035)}
+.build-story .build-step.active{border-color:#51bfae;background:linear-gradient(145deg,#effdf9,#f4f3ff);box-shadow:0 10px 30px rgba(58,174,158,.13)}
+.build-story .build-step strong{color:#172033}.build-story .build-step p{color:#657087}
+.build-story .step-num{color:#66738c}.build-story .step-icon{color:#6b68c8}
+.build-story .build-step::after{content:"";position:absolute;right:12px;top:12px;width:21px;height:21px;border-radius:50%;border:1.5px solid #c7cfdd;background:#fff;box-shadow:inset 0 0 0 3px #fff;transition:all .35s}
+.build-story .build-step.checked::after{content:"✓";display:grid;place-items:center;color:#fff;font-size:13px;font-weight:900;border-color:#16a58d;background:#16a58d;box-shadow:0 0 0 4px #16a58d1c,0 0 18px #16a58d44}
+.build-story .build-step.active:not(.checked)::after{border-color:#7b77dc;box-shadow:0 0 0 4px #7b77dc18}
+.build-story .build-mantra{border-color:#e0e5f0;background:linear-gradient(100deg,#f1f0ff,#effbf8)}
+.build-story .build-mantra strong{color:#172033}.build-story .build-mantra p{color:#657087}
+.build-story .scene-caption{color:#4c5872}.build-story .scene-caption-dot{background:#0fae94;box-shadow:0 0 10px #0fae94}
+.build-story .progress-track{background:#dfe5ef}.build-story .progress-track i{background:linear-gradient(90deg,#15b69b,#7772e8)}
+.build-story .build-stage-label span:first-child{color:#34415b}
+.build-story .scene-floating{color:#34415b;background:rgba(255,255,255,.94);border-color:#d9e0ee;box-shadow:0 8px 24px #25345412}
+@media(max-width:760px){.build-story .build-step::after{right:9px;top:9px}}
+.build-story .step-checked-label{display:inline-flex;align-items:center;gap:4px;margin-top:10px;padding:5px 7px;border-radius:999px;background:#e2f8f1;color:#087f70;font-size:8px;letter-spacing:1px;font-weight:900;animation:checkedPop .3s ease both}.build-story .build-step:not(.checked) .step-checked-label{display:none}@keyframes checkedPop{from{opacity:0;transform:scale(.75)}to{opacity:1;transform:scale(1)}}</style></head>
 <body class="light"><main class="wrap">
 <nav class="nav"><a class="brand-logo" href="#top" aria-label="FIXBYTE INDIA home">
 <svg class="brand-mark" viewBox="0 0 150 220" role="img" aria-label="FIXBYTE INDIA emblem">
@@ -285,5 +311,5 @@ document.getElementById('joinForm').addEventListener('submit',function(e){
 })();
 
 // Animated development-story sequence
-(function(){const steps=[{caption:'01 / DISCOVER — Understanding your vision',progress:'20%'},{caption:'02 / DESIGN — Turning ideas into an experience',progress:'40%'},{caption:'03 / DEVELOP — Writing and connecting the code',progress:'60%'},{caption:'04 / TEST — Checking details across devices',progress:'80%'},{caption:'05 / LAUNCH — Bringing your website online',progress:'100%'}];let active=0;const cards=[...document.querySelectorAll('.build-step')],caption=document.getElementById('buildSceneCaption'),count=document.getElementById('buildProgressCount'),fill=document.getElementById('buildProgressFill');function showStep(n){active=n;cards.forEach((card,i)=>card.classList.toggle('active',i===n));caption.textContent=steps[n].caption;count.textContent=String(n+1).padStart(2,'0')+' / 05';fill.style.width=steps[n].progress;}cards.forEach((card,i)=>{card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label','Show development step '+(i+1));card.addEventListener('click',()=>showStep(i));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showStep(i);}})});showStep(0);setInterval(()=>showStep((active+1)%steps.length),4200);})();
+(function(){const steps=[{caption:'01 / DISCOVER — Understanding your vision',progress:'20%'},{caption:'02 / DESIGN — Turning ideas into an experience',progress:'40%'},{caption:'03 / DEVELOP — Writing and connecting the code',progress:'60%'},{caption:'04 / TEST — Checking details across devices',progress:'80%'},{caption:'05 / LAUNCH — Bringing your website online',progress:'100%'}];let active=0;const cards=[...document.querySelectorAll('.build-step')],caption=document.getElementById('buildSceneCaption'),count=document.getElementById('buildProgressCount'),fill=document.getElementById('buildProgressFill');function showStep(n){active=n;cards.forEach((card,i)=>{card.classList.toggle('active',i===n);card.classList.toggle('checked',i<=n);card.setAttribute('aria-pressed',i===n?'true':'false');const name=card.querySelector('strong');if(name){let status=card.querySelector('.step-checked-label');if(i<=n){if(!status){status=document.createElement('span');status.className='step-checked-label';status.textContent='✓ CHECKED';card.appendChild(status);}}else if(status){status.remove();}}});caption.textContent=steps[n].caption;count.textContent=String(n+1).padStart(2,'0')+' / 05';fill.style.width=steps[n].progress;}cards.forEach((card,i)=>{card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label','Show development step '+(i+1));card.addEventListener('click',()=>showStep(i));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showStep(i);}})});showStep(0);setInterval(()=>showStep((active+1)%steps.length),4200);})();
 </script></body></html>
