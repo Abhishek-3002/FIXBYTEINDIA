@@ -162,6 +162,26 @@ body.light .build-story{background:linear-gradient(145deg,#11172b,#1c2140 52%,#1
 .payment-radio-mark{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:50%;font-size:17px;font-weight:950;color:#07111f;background:#42e8c5;opacity:.28;transform:scale(.85);transition:opacity .2s,transform .2s}
 .payment-option:has(input:checked) .payment-radio-mark{opacity:1;transform:scale(1)}
 @media(max-width:600px){.payment-options{grid-template-columns:1fr;gap:12px}.payment-option{min-height:112px;padding:19px 17px}.payment-option-title{font-size:19px}.payment-option-sub{font-size:12px}.payment-option-body strong{font-size:27px}}
+
+/* Larger, button-like payment choices for clear selection */
+.payment-choice-wrap{margin-top:24px;padding:clamp(18px,3vw,28px);border:1px solid rgba(66,232,197,.28);border-radius:24px;background:linear-gradient(135deg,rgba(66,232,197,.07),rgba(182,160,255,.09),var(--panel));}
+.payment-choice-head h3{font-size:clamp(23px,3vw,30px);margin:16px 0 8px;line-height:1.2}
+.payment-choice-head p{color:var(--muted);line-height:1.7;margin:0 0 20px}
+.payment-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}
+.payment-option{position:relative;display:flex;align-items:center;gap:14px;min-height:128px;padding:22px;border:2px solid var(--line);border-radius:20px;background:var(--panel);cursor:pointer;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
+.payment-option:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 12px 30px rgba(66,232,197,.13)}
+.payment-option:has(input:checked){border-color:var(--cyan);background:linear-gradient(130deg,rgba(66,232,197,.17),rgba(182,160,255,.13));box-shadow:0 0 0 2px rgba(66,232,197,.12),0 12px 28px rgba(0,0,0,.12)}
+.payment-option input{width:22px;height:22px;flex:0 0 22px;accent-color:var(--cyan);cursor:pointer}
+.payment-option-body{display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;gap:7px}
+.payment-option-title{font-size:clamp(17px,2vw,21px);font-weight:900;line-height:1.25;color:var(--text)}
+.payment-option-sub{font-size:14px;line-height:1.45;color:var(--muted)}
+.payment-option-body strong{font-size:clamp(24px,3vw,31px);line-height:1.2;color:var(--cyan);margin-top:4px}
+.payment-radio-mark{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border:2px solid var(--line);border-radius:50%;color:transparent;font-size:16px;font-weight:900}
+.payment-option:has(input:checked) .payment-radio-mark{background:var(--cyan);border-color:var(--cyan);color:#07111f}
+.payment-now-btn{width:100%;min-height:58px;font-size:16px;letter-spacing:.3px}
+.payment-now-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+@media(max-width:640px){.payment-options{grid-template-columns:1fr;gap:12px}.payment-option{min-height:116px;padding:18px;border-radius:17px}.payment-option-title{font-size:19px}.payment-option-body strong{font-size:28px}.payment-choice-wrap{padding:16px}}
+
 </style><script src="https://checkout.razorpay.com/v1/checkout.js"></script></head>
 <body class="light"><main class="wrap">
 <nav class="nav"><a class="brand-logo" href="#top" aria-label="FIXBYTE INDIA home">
