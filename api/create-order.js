@@ -1,5 +1,5 @@
-const PLAN_PRICES = { basic: 1499, business: 2999, premium: 5999 };
-const PLAN_NAMES = { basic: "Basic Website", business: "Business Website", premium: "Premium Website" };
+const PLAN_PRICES = { basic: 1499, business: 2999, premium: 5999, jet: 9999 };
+const PLAN_NAMES = { basic: "Basic Website", business: "Business Website", premium: "Premium Website", jet: "Jet Plan" };
 
 module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
