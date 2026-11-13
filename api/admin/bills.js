@@ -25,10 +25,9 @@ module.exports = async function handler(req,res) {
         if (!original || original.bill_type!=="sale" || !original.cycle_id) return send(res,400,{success:false,message:"Original purchase bill not found or not linked to a purchase cycle."});
         related_bill_id=original.id;
       }
-      const created=(await supabase("bills",{method:"POST",body:{store_id,bill_number,bill_date,bill_type,related_bill_id,amount,payment_status,status:"valid",note:String(b.note||"").trim()||null,entered_by:"FIXBYTE Admin"}}))[0];
-      const eligibility=await rpc("process_partner_bill",{p_bill_id:created.id});
-      await audit("BILL_CREATED","bill",created.id,{store_id,bill_type,amount,payment_status,eligibility});
-      return send(res,201,{success:true,bill:created,eligibility});
+      const result=await rpc("create_partner_bill",{p_store_id:store_id,p_bill_number:bill_number,p_bill_date:bill_date,p_bill_type:bill_type,p_related_bill_id:related_bill_id,p_amount:amount,p_payment_status:payment_status,p_note:String(b.note||"").trim()||null});
+      await audit("BILL_CREATED","bill",result.bill.id,{store_id,bill_type,amount,payment_status,eligibility:result.eligibility});
+      return send(res,201,{success:true,bill:result.bill,eligibility:result.eligibility});
     }
     if (req.method === "PATCH") {
       const b=readBody(req), id=String(b.id||""), status=String(b.status||"");
