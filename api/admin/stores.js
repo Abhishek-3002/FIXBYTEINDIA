@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
         store_code:makeId("CMADD"), store_name, owner_name, mobile,
         email:String(b.email||"").trim()||null, address:String(b.address||"").trim()||null,
         gstin:String(b.gstin||"").trim().toUpperCase()||null,
-        connection_status:"active"
+        connection_status:b.connection_status==="active"?"active":"inactive"
       }}))[0];
       await audit("STORE_CREATED","medical_store",store.id,{store_code:store.store_code});
       return send(res,201,{success:true,store});
