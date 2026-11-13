@@ -211,7 +211,7 @@ returns jsonb
 language plpgsql
 security definer
 set search_path = public
-as $
+as $recalc$
 declare
   running_total numeric(12,2);
   cycle_row public.eligibility_cycles%rowtype;
@@ -232,9 +232,10 @@ begin
   end if;
   return jsonb_build_object('cycle_id',p_cycle_id,'total_amount',running_total,'cycle_status',(select status from public.eligibility_cycles where id=p_cycle_id));
 end;
-$;
+$recalc$;
 
-revoke all on function public.recalculate_partner_cycle(uuid) from public, anon, authenticated;\ngrant execute on function public.recalculate_partner_cycle(uuid) to service_role;
+revoke all on function public.recalculate_partner_cycle(uuid) from public, anon, authenticated;\nrevoke all on function public.recalculate_partner_cycle(uuid) from public, anon, authenticated;
+grant execute on function public.recalculate_partner_cycle(uuid) to service_role;
 
 -- Lock direct browser access. API functions use the Supabase service-role key.
 alter table public.medical_stores enable row level security;
