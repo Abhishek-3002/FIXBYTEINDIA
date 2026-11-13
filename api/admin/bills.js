@@ -17,6 +17,8 @@ module.exports = async function handler(req,res) {
       const bill_type=b.bill_type==="return"?"return":"sale";
       const payment_status=["paid","credit","partial"].includes(b.payment_status)?b.payment_status:"paid";
       if (!store_id || !bill_number || !/^\d{4}-\d{2}-\d{2}$/.test(bill_date) || !Number.isFinite(amount) || amount<=0) return send(res,400,{success:false,message:"Store, bill number, valid date and amount greater than zero are required."});
+      const todayIndia=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kolkata"}).format(new Date());
+      if (bill_date>todayIndia) return send(res,400,{success:false,message:"Future-dated bills are not allowed."});
       let related_bill_id=null;
       if (bill_type==="return") {
         const originalNumber=String(b.related_bill_number||"").trim();
