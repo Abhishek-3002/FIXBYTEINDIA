@@ -20,11 +20,10 @@ module.exports = async function handler(req,res) {
     }
     if (req.method==="PATCH") {
       const b=readBody(req), id=String(b.id||""), status=String(b.status||"");
-      if (!id || !["requested","confirmed","in_progress","delivered","cancelled"].includes(status)) return send(res,400,{success:false,message:"Order and valid status are required."});
+      if (!id || !["requested","confirmed","in_progress","delivered"].includes(status)) return send(res,400,{success:false,message:"Order and valid status are required."});
       const order=(await supabase("website_orders?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{status,updated_at:new Date().toISOString()}}))[0];
       if (!order) return send(res,404,{success:false,message:"Order not found."});
       if (status==="delivered") await supabase("partner_rewards?id=eq."+encodeURIComponent(order.reward_id),{method:"PATCH",body:{status:"delivered"}});
-      if (status==="cancelled") await supabase("partner_rewards?id=eq."+encodeURIComponent(order.reward_id),{method:"PATCH",body:{status:"available"}});
       await audit("WEBSITE_ORDER_STATUS_CHANGED","website_order",id,{status});
       return send(res,200,{success:true,order});
     }
