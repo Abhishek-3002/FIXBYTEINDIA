@@ -1,8 +1,9 @@
-const { send, supabase, hashToken } = require("./_lib/common");
+const { send, readBody, supabase, hashToken } = require("./_lib/common");
 module.exports = async function handler(req,res) {
-  if (req.method!=="GET") return send(res,405,{success:false,message:"Method not allowed."});
-  const token=String(req.query?.token||"");
-  if (token.length<30 || token.length>120) return send(res,400,{success:false,message:"Invalid verification code."});
+  if (req.method!=="POST") return send(res,405,{success:false,message:"Method not allowed."});
+  const body=readBody(req);
+  const token=String(body.token||"");
+  if (token.length<30 || token.length>120) return send(res,400,{success:false,verified:false,message:"Invalid verification code."});
   try {
     const hash=hashToken(token);
     const card=(await supabase("partner_cards?select=id,store_id,card_code,status,issued_at,medical_stores(store_name,store_code,connection_status)&token_hash=eq."+encodeURIComponent(hash)))[0];
