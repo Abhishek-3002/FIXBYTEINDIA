@@ -11,7 +11,7 @@ module.exports = async function handler(req,res) {
     const store=(await supabase("medical_stores?select=id,connection_status&id=eq."+encodeURIComponent(card.store_id)))[0];
     const available=(await supabase("partner_rewards?select=id&store_id=eq."+encodeURIComponent(card.store_id)+"&status=eq.available")).length;
     const verified=card.status==="active" && store?.connection_status==="active";
-    await supabase("verification_logs",{method:"POST",body:{card_id:card.id,result:verified?"verified":card.status==="active"?"connection_inactive":"card_"+card.status}});
+    await supabase("verification_logs",{method:"POST",body:{card_id:card.id,result:verified?"verified":card.status==="active"?"connection_inactive":"card_"+card.status}}).catch(err=>console.error("Verification log error:",err.message));
     return send(res,200,{success:true,verified,card_code:card.card_code,store_name:card.medical_stores.store_name,card_status:card.status,connection_status:store?.connection_status||"unknown",available_offers:available,website_offer_price:99,checked_at:new Date().toISOString(),message:verified?"Verified Connected Medical Partner":"Card exists, but its current verification status is not active."});
   } catch(e) { console.error(e); return send(res,500,{success:false,message:"Verification service is temporarily unavailable."}); }
 };
