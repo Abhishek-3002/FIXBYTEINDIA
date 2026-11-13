@@ -15,7 +15,7 @@ module.exports = async function handler(req,res) {
       if (store.connection_status!=="active") return send(res,409,{success:false,message:"Store is Inactive. Activate its CMADD connection before issuing a card."});
       const existing=(await supabase("partner_cards?select=id&store_id=eq."+encodeURIComponent(storeId)))[0];
       if (existing) return send(res,409,{success:false,message:"This store already has a permanent partner card."});
-      const earned=(await supabase("partner_rewards?select=id&store_id=eq."+encodeURIComponent(storeId)+"&status=neq.void"))[0];
+      const earned=(await supabase("partner_rewards?select=id&store_id=eq."+encodeURIComponent(storeId)+"&status=in.(available,ordered,delivered)"))[0];
       if (!earned) return send(res,409,{success:false,message:"No qualifying ₹12,000 reward exists for this store yet."});
       const token=crypto.randomBytes(32).toString("base64url");
       const card=(await supabase("partner_cards",{method:"POST",body:{store_id:storeId,card_code:makeId("FB-CARD"),token_hash:hashToken(token),status:"active"}}))[0];
