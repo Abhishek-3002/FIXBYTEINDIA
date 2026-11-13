@@ -34,6 +34,9 @@ module.exports = async function handler(req,res) {
       }
       const status=String(b.status||"");
       if (!["active","suspended","revoked"].includes(status)) return send(res,400,{success:false,message:"Valid card status is required."});
+      const current=(await supabase("partner_cards?select=id,status&id=eq."+encodeURIComponent(id)))[0];
+      if (!current) return send(res,404,{success:false,message:"Card not found."});
+      if (current.status==="revoked" && status!=="revoked") return send(res,409,{success:false,message:"A revoked card cannot be reactivated. Issue a replacement through support."});
       const card=(await supabase("partner_cards?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{status,updated_at:new Date().toISOString()}}))[0];
       if (!card) return send(res,404,{success:false,message:"Card not found."});
       await audit("CARD_STATUS_CHANGED","partner_card",id,{status});
