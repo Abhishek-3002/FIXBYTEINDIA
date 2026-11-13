@@ -33,7 +33,7 @@ module.exports = async function handler(req,res) {
     if (req.method === "PATCH") {
       const b=readBody(req), id=String(b.id||""), status=String(b.status||"");
       if (!id || !["valid","cancelled"].includes(status)) return send(res,400,{success:false,message:"Bill ID and valid/cancelled status are required."});
-      const before=(await supabase("bills?select=id,cycle_id& id=eq."+encodeURIComponent(id).replace("%20","")))[0];
+      const before=(await supabase("bills?select=id,cycle_id&id=eq."+encodeURIComponent(id)))[0];
       if (!before) return send(res,404,{success:false,message:"Bill not found."});
       const updated=(await supabase("bills?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{status}}))[0];
       let eligibility=null;
