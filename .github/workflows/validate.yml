@@ -20,7 +20,7 @@ jobs:
           import pathlib, re, subprocess, tempfile
           for page in ["index.html", "admin.html", "verify.html"]:
               source = pathlib.Path(page).read_text()
-              scripts = re.findall(r"<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>", source, re.I)
+              scripts = re.findall(r"<script(?:\s[^>]*)?>([\s\S]*?)</script>", source, re.I)
               for number, script in enumerate(scripts):
                   if not script.strip():
                       continue
