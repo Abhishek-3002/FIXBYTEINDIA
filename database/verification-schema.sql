@@ -205,6 +205,37 @@ begin
 end;
 $$;
 
+
+ 
+create or replace function public.create_partner_bill(
+  p_store_id uuid,
+  p_bill_number text,
+  p_bill_date date,
+  p_bill_type text,
+  p_related_bill_id uuid,
+  p_amount numeric,
+  p_payment_status text,
+  p_note text
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $create_bill$
+declare
+  new_bill public.bills%rowtype;
+  eligibility jsonb;
+begin
+  insert into public.bills(store_id,bill_number,bill_date,bill_type,related_bill_id,amount,payment_status,status,note,entered_by)
+  values (p_store_id,p_bill_number,p_bill_date,p_bill_type,p_related_bill_id,p_amount,p_payment_status,'valid',p_note,'FIXBYTE Admin')
+  returning * into new_bill;
+  eligibility := public.process_partner_bill(new_bill.id);
+  return jsonb_build_object('bill',to_jsonb(new_bill),'eligibility',eligibility);
+end;
+$create_bill$;
+
+revoke all on function public.create_partner_bill(uuid,text,date,text,uuid,numeric,text,text) from public, anon, authenticated;
+grant execute on function public.create_partner_bill(uuid,text,date,text,uuid,numeric,text,text) to service_role;
  
 create or replace function public.recalculate_partner_cycle(p_cycle_id uuid)
 returns jsonb
