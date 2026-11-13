@@ -121,9 +121,9 @@ begin
   select * into b from public.bills where id = p_bill_id;
   if not found then raise exception 'Bill not found'; end if;
 
-  if exists (
+  if b.bill_type = 'sale' and exists (
     select 1 from public.bills
-    where store_id = b.store_id and id <> b.id and bill_date > b.bill_date
+    where store_id = b.store_id and id <> b.id and bill_date > b.bill_date and bill_type = 'sale'
   ) then
     raise exception 'Backdated bill blocked: enter bills in date order for this store';
   end if;
