@@ -37,6 +37,7 @@ create table if not exists public.bills (
   bill_number text not null,
   bill_date date not null,
   bill_type text not null default 'sale' check (bill_type in ('sale','return')),
+  related_bill_id uuid references public.bills(id),
   amount numeric(12,2) not null check (amount > 0),
   payment_status text not null default 'paid' check (payment_status in ('paid','credit','partial')),
   status text not null default 'valid' check (status in ('valid','cancelled')),
@@ -127,29 +128,41 @@ begin
     raise exception 'Backdated bill blocked: enter bills in date order for this store';
   end if;
 
-  select * into latest
-  from public.eligibility_cycles
-  where store_id = b.store_id
-  order by period_start desc
-  limit 1;
-
-  if latest.id is null then
-    insert into public.eligibility_cycles(store_id, period_start, period_end)
-    values (b.store_id, b.bill_date, b.bill_date + 3)
-    returning id into chosen_cycle;
-  elsif latest.status = 'qualified' and b.bill_date = latest.qualified_on then
-    chosen_cycle := latest.id;
-  elsif latest.status = 'in_progress' and b.bill_date <= latest.period_end then
-    chosen_cycle := latest.id;
-  elsif b.bill_date > coalesce(latest.qualified_on, latest.period_end) then
-    if latest.status = 'in_progress' then
-      update public.eligibility_cycles set status = 'expired' where id = latest.id;
+  if b.bill_type = 'return' then
+    if b.related_bill_id is null then
+      raise exception 'Select the original purchase bill for this return';
     end if;
-    insert into public.eligibility_cycles(store_id, period_start, period_end)
-    values (b.store_id, b.bill_date, b.bill_date + 3)
-    returning id into chosen_cycle;
+    select cycle_id into chosen_cycle
+    from public.bills
+    where id = b.related_bill_id and store_id = b.store_id and bill_type = 'sale';
+    if chosen_cycle is null then
+      raise exception 'Original bill not found or not assigned to an eligibility cycle';
+    end if;
   else
-    raise exception 'Bill date does not fit the current four-day purchase cycle';
+    select * into latest
+    from public.eligibility_cycles
+    where store_id = b.store_id
+    order by period_start desc
+    limit 1;
+
+    if latest.id is null then
+      insert into public.eligibility_cycles(store_id, period_start, period_end)
+      values (b.store_id, b.bill_date, b.bill_date + 3)
+      returning id into chosen_cycle;
+    elsif latest.status in ('qualified','review_required') and b.bill_date = latest.qualified_on then
+      chosen_cycle := latest.id;
+    elsif latest.status = 'in_progress' and b.bill_date <= latest.period_end then
+      chosen_cycle := latest.id;
+    elsif b.bill_date > coalesce(latest.qualified_on, latest.period_end) then
+      if latest.status = 'in_progress' then
+        update public.eligibility_cycles set status = 'expired' where id = latest.id;
+      end if;
+      insert into public.eligibility_cycles(store_id, period_start, period_end)
+      values (b.store_id, b.bill_date, b.bill_date + 3)
+      returning id into chosen_cycle;
+    else
+      raise exception 'Bill date does not fit the current four-day purchase cycle';
+    end if;
   end if;
 
   update public.bills set cycle_id = chosen_cycle where id = b.id;
@@ -175,6 +188,9 @@ begin
   elsif cycle_state = 'qualified' and running_total < 12000 then
     update public.eligibility_cycles set total_amount = running_total, status = 'review_required' where id = chosen_cycle;
     update public.partner_rewards set status = 'review_required' where cycle_id = chosen_cycle and status = 'available';
+  elsif cycle_state = 'review_required' and running_total >= 12000 then
+    update public.eligibility_cycles set total_amount = running_total, status = 'qualified' where id = chosen_cycle;
+    update public.partner_rewards set status = 'available' where cycle_id = chosen_cycle and status = 'review_required';
   else
     update public.eligibility_cycles set total_amount = running_total where id = chosen_cycle;
   end if;
@@ -188,6 +204,37 @@ begin
   );
 end;
 $$;
+
+ 
+create or replace function public.recalculate_partner_cycle(p_cycle_id uuid)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $
+declare
+  running_total numeric(12,2);
+  cycle_row public.eligibility_cycles%rowtype;
+begin
+  select * into cycle_row from public.eligibility_cycles where id = p_cycle_id;
+  if not found then raise exception 'Eligibility cycle not found'; end if;
+  select coalesce(sum(case when bill_type='return' then -amount else amount end),0)
+    into running_total
+    from public.bills where cycle_id=p_cycle_id and status='valid';
+  if cycle_row.status in ('qualified','review_required') and running_total < 12000 then
+    update public.eligibility_cycles set total_amount=running_total,status='review_required' where id=p_cycle_id;
+    update public.partner_rewards set status='review_required' where cycle_id=p_cycle_id and status in ('available','review_required');
+  elsif cycle_row.status='review_required' and running_total >= 12000 then
+    update public.eligibility_cycles set total_amount=running_total,status='qualified' where id=p_cycle_id;
+    update public.partner_rewards set status='available' where cycle_id=p_cycle_id and status='review_required';
+  else
+    update public.eligibility_cycles set total_amount=running_total where id=p_cycle_id;
+  end if;
+  return jsonb_build_object('cycle_id',p_cycle_id,'total_amount',running_total,'cycle_status',(select status from public.eligibility_cycles where id=p_cycle_id));
+end;
+$;
+
+grant execute on function public.recalculate_partner_cycle(uuid) to service_role;
 
 -- Lock direct browser access. API functions use the Supabase service-role key.
 alter table public.medical_stores enable row level security;
