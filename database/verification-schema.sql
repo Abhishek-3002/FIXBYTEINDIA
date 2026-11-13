@@ -234,7 +234,7 @@ begin
 end;
 $;
 
-grant execute on function public.recalculate_partner_cycle(uuid) to service_role;
+revoke all on function public.recalculate_partner_cycle(uuid) from public, anon, authenticated;\ngrant execute on function public.recalculate_partner_cycle(uuid) to service_role;
 
 -- Lock direct browser access. API functions use the Supabase service-role key.
 alter table public.medical_stores enable row level security;
@@ -252,4 +252,5 @@ revoke all on public.medical_stores, public.bills, public.eligibility_cycles,
 grant all on public.medical_stores, public.bills, public.eligibility_cycles,
   public.partner_cards, public.partner_rewards, public.website_orders,
   public.verification_logs, public.audit_logs to service_role;
-grant execute on function public.process_partner_bill(uuid) to service_role;
+grant usage, select on all sequences in schema public to service_role;
+revoke all on function public.process_partner_bill(uuid) from public, anon, authenticated;\ngrant execute on function public.process_partner_bill(uuid) to service_role;
