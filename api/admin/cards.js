@@ -15,14 +15,25 @@ module.exports = async function handler(req,res) {
       if (store.connection_status!=="active") return send(res,409,{success:false,message:"Store is Inactive. Activate its CMADD connection before issuing a card."});
       const existing=(await supabase("partner_cards?select=id&store_id=eq."+encodeURIComponent(storeId)))[0];
       if (existing) return send(res,409,{success:false,message:"This store already has a permanent partner card."});
+      const earned=(await supabase("partner_rewards?select=id&store_id=eq."+encodeURIComponent(storeId)+"&status=neq.void"))[0];
+      if (!earned) return send(res,409,{success:false,message:"No qualifying ₹12,000 reward exists for this store yet."});
       const token=crypto.randomBytes(32).toString("base64url");
       const card=(await supabase("partner_cards",{method:"POST",body:{store_id:storeId,card_code:makeId("FB-CARD"),token_hash:hashToken(token),status:"active"}}))[0];
       await audit("CARD_ISSUED","partner_card",card.id,{card_code:card.card_code,store_id:storeId});
       return send(res,201,{success:true,card,token,verify_url:"/verify.html?token="+encodeURIComponent(token)});
     }
     if (req.method === "PATCH") {
-      const b=readBody(req), id=String(b.id||""), status=String(b.status||"");
-      if (!id || !["active","suspended","revoked"].includes(status)) return send(res,400,{success:false,message:"Card ID and valid status are required."});
+      const b=readBody(req), id=String(b.id||"");
+      if (!id) return send(res,400,{success:false,message:"Card ID is required."});
+      if (b.rotate_token===true) {
+        const token=crypto.randomBytes(32).toString("base64url");
+        const card=(await supabase("partner_cards?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{token_hash:hashToken(token),updated_at:new Date().toISOString()}}))[0];
+        if (!card) return send(res,404,{success:false,message:"Card not found."});
+        await audit("CARD_QR_ROTATED","partner_card",id,{card_code:card.card_code});
+        return send(res,200,{success:true,card,token,verify_url:"/verify.html?token="+encodeURIComponent(token)});
+      }
+      const status=String(b.status||"");
+      if (!["active","suspended","revoked"].includes(status)) return send(res,400,{success:false,message:"Valid card status is required."});
       const card=(await supabase("partner_cards?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{status,updated_at:new Date().toISOString()}}))[0];
       if (!card) return send(res,404,{success:false,message:"Card not found."});
       await audit("CARD_STATUS_CHANGED","partner_card",id,{status});
