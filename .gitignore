@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.vercel/
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
