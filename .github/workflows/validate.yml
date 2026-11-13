@@ -1,0 +1,32 @@
+name: Verify platform source
+on:
+  push:
+    branches: [medical-verification-platform]
+  pull_request:
+    branches: [main]
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check API JavaScript
+        run: find api -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Check inline browser JavaScript
+        run: |
+          python - <<'PY'
+          import pathlib, re, subprocess, tempfile
+          for page in ["index.html", "admin.html", "verify.html"]:
+              source = pathlib.Path(page).read_text()
+              scripts = re.findall(r"<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>", source, re.I)
+              for number, script in enumerate(scripts):
+                  if not script.strip():
+                      continue
+                  with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as f:
+                      f.write(script)
+                      name = f.name
+                  subprocess.run(["node", "--check", name], check=True)
+          print("Inline JavaScript syntax passed.")
+          PY
