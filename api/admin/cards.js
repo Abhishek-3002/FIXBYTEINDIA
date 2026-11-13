@@ -20,7 +20,7 @@ module.exports = async function handler(req,res) {
       const token=crypto.randomBytes(32).toString("base64url");
       const card=(await supabase("partner_cards",{method:"POST",body:{store_id:storeId,card_code:makeId("FB-CARD"),token_hash:hashToken(token),status:"active"}}))[0];
       await audit("CARD_ISSUED","partner_card",card.id,{card_code:card.card_code,store_id:storeId});
-      return send(res,201,{success:true,card,token,verify_url:"/verify.html?token="+encodeURIComponent(token)});
+      return send(res,201,{success:true,card,token,verify_url:"/verify.html#"+encodeURIComponent(token)});
     }
     if (req.method === "PATCH") {
       const b=readBody(req), id=String(b.id||"");
@@ -30,7 +30,7 @@ module.exports = async function handler(req,res) {
         const card=(await supabase("partner_cards?id=eq."+encodeURIComponent(id),{method:"PATCH",body:{token_hash:hashToken(token),updated_at:new Date().toISOString()}}))[0];
         if (!card) return send(res,404,{success:false,message:"Card not found."});
         await audit("CARD_QR_ROTATED","partner_card",id,{card_code:card.card_code});
-        return send(res,200,{success:true,card,token,verify_url:"/verify.html?token="+encodeURIComponent(token)});
+        return send(res,200,{success:true,card,token,verify_url:"/verify.html#"+encodeURIComponent(token)});
       }
       const status=String(b.status||"");
       if (!["active","suspended","revoked"].includes(status)) return send(res,400,{success:false,message:"Valid card status is required."});
