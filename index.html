@@ -169,6 +169,13 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 
 /* Premium icon depth and clear pricing navigation */
+.service-icon,.tech-symbol,.trust-3d{background:linear-gradient(145deg,#fff 0%,#f0ebff 100%);box-shadow:inset 2px 2px 4px #fff,inset -2px -2px 5px #ded5f4,0 7px 14px #39227a18;transform:translateZ(0)}
+.service-icon svg,.tech-symbol svg,.trust-3d .icon{filter:drop-shadow(0 2px 1px #6946d455);stroke-width:2}
+.service:hover .service-icon,.tech-item:hover .tech-symbol{transform:translateY(-2px);box-shadow:inset 2px 2px 4px #fff,0 10px 18px #39227a20}
+.pricing-disclaimer{text-align:center;color:var(--muted);font-size:12px;margin:-20px 0 25px}
+.price-card .price{white-space:nowrap}
+.price-card.featured{background:linear-gradient(180deg,#fff 0%,#fcfbff 100%)}
+@media(max-width:720px){.pricing-disclaimer{text-align:left;margin:-12px 0 22px}}
 .trust-3d{background:linear-gradient(145deg,#fff 0%,#eee8ff 100%);box-shadow:inset 0 2px 3px #fff,0 7px 15px #6042bd24;border:1px solid #e5def8;color:var(--purple)}
 .trust-3d .icon{filter:drop-shadow(0 2px 1px #6b4bd455);stroke-width:2.1}
 .service-icon,.tech-symbol{box-shadow:inset 0 2px 3px #fff,0 5px 12px #6042bd16;border:1px solid #ece6fb}
@@ -193,7 +200,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 <div class="hero-copy"><div class="eyebrow">Your digital growth partner</div>
 <h1>We turn your ideas into <span>digital experiences.</span></h1>
 <p>From professional websites to custom software and business automation, FIXBYTE INDIA helps you build, improve and manage your digital presence with confidence.</p>
-<div class="hero-actions"><a class="btn primary" href="#contact">Book a Meeting <span>↗</span></a><a class="btn light" href="tel:+917357204736"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.84.58 2.8.7A2 2 0 0 1 22 16.92z"/></svg>Call Now</a><a class="btn light" href="#services">Explore Our Services</a></div>
+<div class="hero-actions"><a class="btn primary" href="#contact">Book a Meeting <span>↗</span></a><a class="btn light" href="tel:+917357204736"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.84.58 2.8.7A2 2 0 0 1 22 16.92z"/></svg>Call Now</a><a class="btn light" href="#pricing"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h16"/></svg> View Plans & Pricing</a><a class="btn light" href="#services">Explore Our Services</a></div>
 <div class="hero-note"><span class="avatar-dots"><i></i><i></i><i></i><i></i></span><span>One team for design, development and digital support.</span></div></div>
 <div class="hero-art" aria-label="Digital services illustration"><div class="float-tag one">✦ Built around your business</div><div class="art-panel"><div class="art-top"><span>FIXBYTE / DIGITAL STUDIO</span><span class="art-dots"><i></i><i></i><i></i></span></div><div class="art-title">Make your next move digital.</div><div class="art-sub">Design · Development · Technology</div><div class="art-grid"><div class="art-tile dark"><strong>Websites</strong><span>Designed to make an impression</span></div><div class="art-tile"><strong>Software</strong><span>Built for the way you work</span></div></div><div class="art-bottom"><span>From idea to launch</span><b>Let's build ↗</b></div></div><div class="float-tag two">◈ Clean design. Useful technology.</div></div>
 </div></section>
@@ -235,11 +242,11 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 <article class="project"><div class="project-visual"><div class="project-window"><span></span><span></span><i></i></div></div><div class="project-info"><h3>CMADD2 — Medical Distributor</h3><p>A business website with a clean product enquiry experience through WhatsApp.</p><a href="https://cmadd2.onrender.com" target="_blank" rel="noopener noreferrer">View live project ↗</a></div></article>
 <article class="project"><div class="project-visual dark"><div class="project-window"><span></span><span></span><i></i></div></div><div class="project-info"><h3>VTS Tour & Travels</h3><p>A travel website concept with service information and customer enquiry options.</p><a href="https://vtstourandtravless.onrender.com" target="_blank" rel="noopener noreferrer">View live project ↗</a></div></article>
 </div></div></section>
-<section class="section container" id="pricing"><div class="section-head"><div class="eyebrow">Plans & pricing</div><h2>Choose a starting point. We'll shape the details together.</h2><p>Every business has different requirements. Share your project details and we'll recommend a suitable package before work begins.</p></div>
-<div class="pricing-grid">
-<article class="price-card"><div class="plan-label">01 / Starter</div><h3>Business Website</h3><p>For businesses that need a professional online presence.</p><div class="price">From ₹1,999 <small>/ project</small></div><ul><li>Responsive website design</li><li>Business information pages</li><li>Contact and WhatsApp integration</li><li>Project scope confirmed before start</li></ul><a class="btn" href="#contact" data-service="Website Design & Development">Enquire Now ↗</a></article>
-<article class="price-card featured"><div class="plan-label">02 / Growth</div><h3>Software & Automation</h3><p>For teams that want to simplify daily business operations.</p><div class="price">Custom Quote</div><ul><li>Custom features and workflows</li><li>Dashboard and management tools</li><li>Business process automation</li><li>Scope-based development plan</li></ul><a class="btn primary" href="#contact" data-service="Custom Software & Applications">Enquire Now ↗</a></article>
-<article class="price-card"><div class="plan-label">03 / Advanced</div><h3>Complete Digital Solution</h3><p>For larger projects that need multiple connected services.</p><div class="price">Custom Quote</div><ul><li>Website and application planning</li><li>Custom integrations</li><li>Design and development support</li><li>Dedicated project discussion</li></ul><a class="btn" href="#contact" data-service="Complete Digital Solution">Enquire Now ↗</a></article>
+<section class="section container" id="pricing"><div class="section-head"><div class="eyebrow">Plans & pricing</div><h2>Choose a starting point. We'll shape the details together.</h2><p>Choose a starting package below. Final pricing depends on your features, content and project scope; we confirm the quotation with you before work begins.</p></div>
+<p class="pricing-disclaimer">All prices are starting prices in INR. Final quotation is shared after discussing your requirements.</p><div class="pricing-grid">
+<article class="price-card"><div class="plan-label">01 / Starter</div><h3>Business Website</h3><p>For businesses that need a professional online presence.</p><div class="price">₹1,999 <small>/ starting price</small></div><ul><li>Responsive website design</li><li>Business information pages</li><li>Contact and WhatsApp integration</li><li>Project scope confirmed before start</li></ul><a class="btn" href="#contact" data-service="Website Design & Development">Enquire Now ↗</a></article>
+<article class="price-card featured"><div class="plan-label">02 / Growth</div><h3>Software & Automation</h3><p>For teams that want to simplify daily business operations.</p><div class="price">₹4,999 <small>/ starting price</small></div><ul><li>Custom features and workflows</li><li>Dashboard and management tools</li><li>Business process automation</li><li>Scope-based development plan</li></ul><a class="btn primary" href="#contact" data-service="Custom Software & Applications">Enquire Now ↗</a></article>
+<article class="price-card"><div class="plan-label">03 / Advanced</div><h3>Complete Digital Solution</h3><p>For larger projects that need multiple connected services.</p><div class="price">₹9,999 <small>/ starting price</small></div><ul><li>Website and application planning</li><li>Custom integrations</li><li>Design and development support</li><li>Dedicated project discussion</li></ul><a class="btn" href="#contact" data-service="Complete Digital Solution">Enquire Now ↗</a></article>
 </div></section>
 <section class="section soft"><div class="container"><div class="section-head"><div class="eyebrow">Why work with us</div><h2>Professional work, with people you can talk to.</h2></div><div class="why-grid">
 <div class="why"><b>Designed for your business</b><p>We start with your requirements instead of forcing a one-size-fits-all solution.</p></div>
@@ -270,13 +277,23 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 <script>
 (function(){
 
-// Slow, one-time proof-point count-up (8 seconds; respects reduced-motion settings).
+// One-time slow count-up when the proof strip is visible (8 seconds).
 (function(){
- const counters=document.querySelectorAll('.count-up');
- const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- counters.forEach(el=>{const target=Number(el.dataset.count||0),suffix=el.dataset.suffix||'';if(reduced){el.textContent=target.toLocaleString('en-IN')+suffix;return;}
- const duration=8000,start=performance.now();function tick(now){const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);el.textContent=Math.floor(target*eased).toLocaleString('en-IN')+suffix;if(p<1)requestAnimationFrame(tick);else el.textContent=target.toLocaleString('en-IN')+suffix;}requestAnimationFrame(tick);
- });
+ const strip=document.querySelector('.trust-strip'),counters=document.querySelectorAll('.count-up');
+ if(!strip||!counters.length)return;
+ let started=false;
+ function runCounters(){
+  if(started)return;started=true;
+  const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  counters.forEach(el=>{
+   const target=Number(el.dataset.count||0),suffix=el.dataset.suffix||'';
+   if(reduced){el.textContent=target.toLocaleString('en-IN')+suffix;return;}
+   const duration=8000,start=performance.now();
+   function tick(now){const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);el.textContent=Math.floor(target*eased).toLocaleString('en-IN')+suffix;if(p<1)requestAnimationFrame(tick);else el.textContent=target.toLocaleString('en-IN')+suffix;}
+   requestAnimationFrame(tick);
+  });
+ }
+ if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){runCounters();observer.disconnect();}},{threshold:.35});observer.observe(strip);}else runCounters();
 })();
 
 const menu=document.getElementById('menuToggle'),nav=document.getElementById('navLinks');
