@@ -76,5 +76,28 @@ module.exports = async (req, res) => {
     const saved = await saveRow("maya_leads", row);
     return res.status(200).json({ saved, message: saved ? "Lead saved" : "Database not configured; use WhatsApp to send this enquiry." });
   }
+  if (action === "complaint") {
+    const lead = body.lead && typeof body.lead === "object" ? body.lead : {};
+    const row = {
+      meeting_id: safeText(lead.meetingId, 60) || null,
+      full_name: safeText(lead.name, 120),
+      phone: safeText(lead.phone, 40),
+      email: safeText(lead.email, 180) || null,
+      business_name: safeText(lead.business, 160) || null,
+      plan: "Client Complaint",
+      budget: safeText(lead.timeline, 100) || null,
+      website_type: safeText(lead.websiteType, 100) || null,
+      features: safeText(lead.features, 1500) || null,
+      timeline: safeText(lead.timeline, 100) || null,
+      requirements: safeText(lead.requirements, 2500) || null,
+      source: "complaint_form",
+      status: "new"
+    };
+    if (!row.full_name || !row.phone || !row.requirements) {
+      return res.status(400).json({ error: "Name, phone and complaint details are required." });
+    }
+    const saved = await saveRow("maya_leads", row);
+    return res.status(200).json({ saved, message: saved ? "Complaint saved" : "Database not configured; use WhatsApp to send this complaint." });
+  }
   return res.status(400).json({ error: "Unsupported action" });
 };
