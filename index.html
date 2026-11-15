@@ -4,217 +4,255 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="FIXBYTE INDIA — Websites, software, business automation and digital solutions.">
-<title>FIXBYTE INDIA | Digital Solutions</title>
+<meta name="description" content="FIXBYTE INDIA builds professional websites, custom software, e-commerce platforms and digital solutions for growing businesses.">
+<title>FIXBYTE INDIA | Websites, Software & Digital Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#20212a;--muted:#686b76;--line:#e8e8ed;--soft:#f7f7f9;--accent:#6848c7;--accent-soft:#f2effb;--white:#fff}
+:root{--ink:#171923;--muted:#656978;--line:#e9e9ef;--soft:#f8f8fb;--purple:#6946d4;--purple-dark:#5132b7;--purple-pale:#f3f0fc;--white:#fff;--shadow:0 16px 50px rgba(25,20,55,.07)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--white);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:#fff;color:var(--ink);font-family:"DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
-.container{width:min(1120px,calc(100% - 44px));margin:auto}
-header{border-bottom:1px solid var(--line);background:#fff}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.8px;font-size:21px}
-.brand-mark{width:38px;height:38px;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:17px;font-weight:900;letter-spacing:-2px}
-.brand small{display:block;font-size:10px;letter-spacing:3px;color:var(--accent);margin-top:1px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 19px;border:1px solid var(--ink);background:#fff;color:var(--ink);font-size:14px;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
-.btn:hover{background:var(--soft)}
-.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
-.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
-.hero{padding:92px 0 78px;max-width:850px}
-.kicker{font-size:12px;font-weight:750;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
-h1{font-size:clamp(42px,6.3vw,72px);line-height:1.06;letter-spacing:-3px;margin:18px 0 20px;font-weight:760}
-h1 span{color:var(--accent)}
-.lead{font-size:18px;line-height:1.8;color:var(--muted);max-width:690px;margin:0}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.section{padding:68px 0;border-top:1px solid var(--line)}
-.section-head{max-width:700px;margin-bottom:28px}
-h2{font-size:32px;letter-spacing:-1.2px;margin:10px 0 12px}
-.section-head p,.muted{color:var(--muted);line-height:1.75;margin:0}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 20px}
-.stat{border:1px solid var(--line);padding:25px;background:#fff;min-height:128px}
-.stat strong{display:block;font-size:26px;letter-spacing:-.8px;margin-bottom:7px}
-.stat span{font-size:13px;color:var(--muted);line-height:1.55}
-.stat .accent{color:var(--accent)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.service{border:1px solid var(--line);padding:25px;background:#fff;min-height:190px}
-.service .number{font-size:12px;letter-spacing:1.5px;color:var(--accent);font-weight:800}
-.service h3{font-size:19px;margin:19px 0 8px;letter-spacing:-.3px}
-.service p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.project{border:1px solid var(--line);padding:25px;display:flex;flex-direction:column;align-items:flex-start;min-height:190px}
-.project h3{font-size:20px;margin:0 0 8px}
-.project p{font-size:14px;line-height:1.7;color:var(--muted);margin:0 0 20px}
-.project a{margin-top:auto;color:var(--accent);font-size:14px;font-weight:750}
-.enquiry-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:start}
-.enquiry-copy p{color:var(--muted);line-height:1.8}
-.enquiry-copy .contact-line{margin-top:20px;font-size:14px}
-.mode-switch{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
-.mode-switch .btn{min-width:150px}
-.mode-switch .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.form-card{border:1px solid var(--line);padding:26px;background:#fff}
+.container{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+.topline{height:34px;background:#faf9fd;border-bottom:1px solid var(--line);font-size:12px;color:#626575}
+.topline .container{height:100%;display:flex;align-items:center;justify-content:space-between}
+.topline a{color:var(--purple);font-weight:700}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-weight:800;font-size:21px;letter-spacing:-.8px}
+.brand-mark{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:var(--purple);color:white;font-size:22px;font-weight:800}
+.brand small{display:block;color:var(--purple);font-size:9px;letter-spacing:3.4px;margin-top:1px}
+.navlinks{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:650;color:#454958}
+.navlinks a:hover{color:var(--purple)}
+.btn{min-height:47px;padding:0 20px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:13px;font-weight:750;cursor:pointer;transition:transform .2s,background .2s,border-color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(40,30,80,.09)}
+.btn.primary{background:var(--purple);border-color:var(--purple);color:#fff}
+.btn.primary:hover{background:var(--purple-dark);border-color:var(--purple-dark)}
+.btn.light{background:#fff;border-color:#ded9ef;color:var(--purple)}
+.menu-toggle{display:none;width:43px;height:43px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:20px}
+.hero{padding:86px 0 78px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:480px;height:480px;border:1px solid #eeeaf8;border-radius:50%;right:-130px;top:-185px;pointer-events:none}
+.hero:after{content:"";position:absolute;width:330px;height:330px;border:1px solid #f2eff9;border-radius:50%;right:-55px;top:-110px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:55px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--purple);font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}
+.eyebrow:before{content:"";width:23px;height:2px;background:var(--purple)}
+h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif}
+h1{font-size:clamp(42px,5.6vw,68px);line-height:1.09;letter-spacing:-3.2px;margin:20px 0 19px;font-weight:800}
+h1 span{color:var(--purple)}
+.hero-copy>p{font-size:17px;line-height:1.85;color:var(--muted);max-width:610px;margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:29px}
+.hero-note{display:flex;align-items:center;gap:12px;margin-top:30px;color:#777b88;font-size:12px}
+.avatar-dots{display:flex;padding-left:5px}
+.avatar-dots i{width:25px;height:25px;border-radius:50%;background:#eee9fb;border:2px solid #fff;margin-left:-5px;display:block}
+.avatar-dots i:nth-child(2){background:#e4def7}.avatar-dots i:nth-child(3){background:#d6cef2}.avatar-dots i:nth-child(4){background:#c6b9ed}
+.hero-art{min-height:390px;position:relative;display:grid;place-items:center}
+.art-panel{width:min(100%,440px);background:#fff;border:1px solid #eceaf2;border-radius:18px;padding:23px;box-shadow:var(--shadow);transform:rotate(1.2deg)}
+.art-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:17px;border-bottom:1px solid var(--line);font-size:12px;font-weight:750}
+.art-dots{display:flex;gap:5px}.art-dots i{width:7px;height:7px;border-radius:50%;background:#d9d5e4}
+.art-title{font-family:Manrope,sans-serif;font-size:24px;font-weight:800;letter-spacing:-1px;margin:24px 0 7px}
+.art-sub{color:var(--muted);font-size:12px}
+.art-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:11px;margin-top:22px}
+.art-tile{min-height:105px;border-radius:12px;padding:15px;background:var(--purple-pale);display:flex;flex-direction:column;justify-content:space-between}
+.art-tile.dark{background:#211c32;color:#fff}
+.art-tile strong{font-family:Manrope,sans-serif;font-size:17px}
+.art-tile span{font-size:11px;opacity:.72}
+.art-bottom{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:space-between;font-size:12px}
+.art-bottom b{color:var(--purple)}
+.float-tag{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:10px;padding:12px 15px;font-size:12px;font-weight:750}
+.float-tag.one{left:-2px;top:45px}.float-tag.two{right:-5px;bottom:35px}
+.trust-strip{border-block:1px solid var(--line);background:#fcfcfe;padding:22px 0}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.trust-item{display:flex;align-items:center;justify-content:center;gap:13px;text-align:left}
+.trust-icon{width:40px;height:40px;border-radius:11px;background:var(--purple-pale);color:var(--purple);display:grid;place-items:center;font-size:18px;font-weight:800}
+.trust-item strong{display:block;font-family:Manrope,sans-serif;font-size:16px}
+.trust-item span{font-size:11px;color:var(--muted)}
+.section{padding:82px 0}
+.section.soft{background:#fafafd}
+.section-head{max-width:700px;margin:0 auto 37px;text-align:center}
+.section-head .eyebrow{justify-content:center}
+h2{font-size:clamp(30px,4vw,43px);line-height:1.2;letter-spacing:-1.8px;margin:15px 0 13px;font-weight:800}
+.section-head p{font-size:15px;line-height:1.8;color:var(--muted);margin:0}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.about-card{background:var(--purple-pale);border-radius:18px;padding:35px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+.about-card strong{font-family:Manrope,sans-serif;font-size:42px;line-height:1.1;letter-spacing:-2px;color:var(--purple)}
+.about-card p{color:#565268;line-height:1.7;font-size:14px;max-width:320px}
+.about-copy p{color:var(--muted);line-height:1.9;font-size:15px}
+.check-list{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:23px}
+.check{font-size:13px;font-weight:700;display:flex;gap:9px;align-items:center}
+.check i{font-style:normal;color:var(--purple);font-size:16px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service{background:#fff;border:1px solid var(--line);border-radius:13px;padding:25px;min-height:220px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.service:hover{transform:translateY(-4px);border-color:#d9d0f4;box-shadow:var(--shadow)}
+.service-icon{width:44px;height:44px;border-radius:12px;background:var(--purple-pale);color:var(--purple);display:grid;place-items:center;font-size:19px;font-weight:800}
+.service h3{font-size:18px;margin:20px 0 9px;letter-spacing:-.4px}
+.service p{font-size:13px;line-height:1.75;color:var(--muted);margin:0}
+.service a{display:inline-block;margin-top:17px;color:var(--purple);font-size:12px;font-weight:800}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.process{border-top:2px solid #ded8f0;padding:20px 16px 0 0}
+.process b{font-size:11px;letter-spacing:1px;color:var(--purple)}
+.process h3{font-size:17px;margin:13px 0 8px}
+.process p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+.project{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.project-visual{height:165px;background:var(--purple-pale);display:flex;align-items:center;justify-content:center;padding:25px}
+.project-visual.dark{background:#211c32;color:#fff}
+.project-window{width:80%;height:100%;border:1px solid rgba(100,70,190,.2);border-radius:9px;background:#fff;padding:12px;box-shadow:0 10px 30px rgba(20,15,50,.08)}
+.project-window span{display:block;height:7px;width:38%;background:#e8e2f8;border-radius:5px;margin-bottom:8px}
+.project-window i{display:block;height:48px;background:#f3f0fc;border-radius:5px;margin-top:12px}
+.project-info{padding:22px}
+.project-info h3{font-size:18px;margin:0 0 7px}
+.project-info p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 14px}
+.project-info a{font-size:12px;color:var(--purple);font-weight:800}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{border:1px solid var(--line);border-radius:14px;padding:26px;background:#fff}
+.price-card.featured{border:1.5px solid var(--purple);box-shadow:var(--shadow);position:relative}
+.price-card .plan-label{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--purple);font-weight:800}
+.price-card h3{font-size:21px;margin:13px 0 8px}
+.price-card p{font-size:13px;color:var(--muted);line-height:1.7;min-height:45px}
+.price{font-family:Manrope,sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin:20px 0}
+.price small{font-family:"DM Sans",sans-serif;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0}
+.price-card ul{list-style:none;padding:0;margin:20px 0 23px;display:grid;gap:12px}
+.price-card li{font-size:12px;color:#555968;display:flex;gap:9px}
+.price-card li:before{content:"✓";color:var(--purple);font-weight:900}
+.price-card .btn{width:100%}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.why{border:1px solid var(--line);border-radius:12px;padding:22px}
+.why b{font-family:Manrope,sans-serif;font-size:16px}
+.why p{font-size:13px;line-height:1.7;color:var(--muted);margin:9px 0 0}
+.cta-band{background:#211c32;color:#fff;border-radius:17px;padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.cta-band h2{font-size:29px;margin:0 0 9px;letter-spacing:-1px}
+.cta-band p{font-size:13px;color:#d0ccda;margin:0;line-height:1.7}
+.cta-band .btn{flex-shrink:0}
+.enquiry-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.enquiry-copy p{color:var(--muted);line-height:1.8;font-size:14px}
+.contact-card{border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:22px}
+.contact-card div{font-size:13px;margin:8px 0}.contact-card a{color:var(--purple);font-weight:750}
+.form-card{border:1px solid var(--line);border-radius:14px;padding:27px;background:#fff;box-shadow:var(--shadow)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:650;color:#454752}
+.field{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:750;color:#454958}
 .field.full{grid-column:1/-1}
-.field input,.field select,.field textarea{width:100%;border:1px solid #dcdde3;background:#fff;color:var(--ink);padding:13px 14px;outline:none;border-radius:0}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 2px #6848c71a}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dedfe7;background:#fff;color:var(--ink);padding:13px 14px;border-radius:8px;outline:none;font-size:13px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px #6946d41a}
 .field textarea{min-height:115px;resize:vertical}
-.form-actions{margin-top:18px}
-.form-actions .btn{width:100%}
-.form-note{font-size:12px;line-height:1.6;color:var(--muted);margin:12px 0 0}
-#formStatus{font-size:13px;color:var(--accent);line-height:1.6;margin-top:12px}
-.conditional[hidden]{display:none!important}
-footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
-footer a{color:var(--accent);font-weight:700}
-@media(max-width:760px){.container{width:min(100% - 32px,1120px)}.hero{padding:66px 0 58px}h1{letter-spacing:-1.8px}.stats{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.enquiry-wrap{grid-template-columns:1fr;gap:20px}.section{padding:52px 0}}
-@media(max-width:520px){.nav{min-height:68px}.brand{font-size:18px}.brand-mark{width:34px;height:34px}.nav .btn{min-height:41px;padding:0 12px;font-size:12px}.cards,.projects,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.form-card{padding:18px}.mode-switch .btn{flex:1;min-width:0}.hero-actions .btn{width:100%}}
+.form-card .btn{width:100%;margin-top:17px}
+.form-note{font-size:11px;line-height:1.6;color:var(--muted);margin:12px 0 0}
+#formStatus{font-size:12px;color:var(--purple);line-height:1.6;margin-top:10px}
+.faq-list{max-width:850px;margin:auto;display:grid;gap:10px}
+details{border:1px solid var(--line);border-radius:10px;padding:17px 19px;background:#fff}
+summary{cursor:pointer;font-size:14px;font-weight:750;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary:after{content:"+";color:var(--purple);font-size:18px}
+details[open] summary:after{content:"−"}
+details p{font-size:13px;line-height:1.8;color:var(--muted);margin:13px 0 0}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:12px}
+.footer-top{display:flex;justify-content:space-between;gap:25px;align-items:center;padding-bottom:23px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a:hover{color:var(--purple)}
+.footer-bottom{border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-bottom a{color:var(--purple);font-weight:700}
+@media(max-width:900px){.navlinks{gap:15px}.hero-grid{gap:25px}.service-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:28px}.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.container{width:calc(100% - 34px)}.topline .container{justify-content:center}.topline .hide-mobile{display:none}.nav{min-height:68px}.menu-toggle{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 24px 22px;flex-direction:column;align-items:flex-start;gap:19px}.navlinks.open{display:flex}.nav>.btn{display:none}.hero{padding:62px 0 54px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:330px;margin-top:8px}.hero:before{right:-300px}.trust-grid{grid-template-columns:1fr;gap:18px}.trust-item{justify-content:flex-start;max-width:280px;margin:auto;width:100%}.section{padding:62px 0}.about-grid,.enquiry-grid{grid-template-columns:1fr;gap:25px}.about-card{min-height:220px}.pricing-grid,.why-grid{grid-template-columns:1fr}.cta-band{padding:29px;display:block}.cta-band .btn{margin-top:20px}.footer-top{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){h1{font-size:43px;letter-spacing:-2.1px}.hero-copy>p{font-size:15px}.hero-actions .btn{width:100%}.hero-art{min-height:285px}.art-panel{padding:17px}.float-tag.one{left:-4px;top:17px}.float-tag.two{right:-3px;bottom:15px}.service-grid,.project-grid,.process-grid,.form-grid,.check-list{grid-template-columns:1fr}.field.full{grid-column:auto}.form-card{padding:19px}.section-head{text-align:left}.section-head .eyebrow{justify-content:flex-start}.section-head p{font-size:14px}.project-visual{height:135px}.footer-links{gap:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
+<div class="topline"><div class="container"><span class="hide-mobile">Thoughtful digital solutions for businesses that want to grow.</span><span>Need help? <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">Chat with FIXBYTE INDIA ↗</a></span></div></div>
 <header><div class="container nav">
 <a class="brand" href="#home" aria-label="FIXBYTE INDIA home"><span class="brand-mark">F</span><span>FIXBYTE<small>INDIA</small></span></a>
-<a class="btn primary" href="#enquiry">Book a Meeting <span aria-hidden="true">↗</span></a>
+<nav class="navlinks" id="navLinks" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Our Work</a><a href="#pricing">Plans</a><a href="#faq">FAQs</a><a href="#contact">Contact</a></nav>
+<a class="btn primary" href="#contact">Book a Meeting <span>↗</span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 </div></header>
 <main>
-<section class="container hero" id="home">
-<div class="kicker">Digital solutions for growing businesses</div>
-<h1>Good ideas deserve <span>great digital work.</span></h1>
-<p class="lead">FIXBYTE INDIA helps businesses build a stronger online presence with thoughtfully designed websites, useful software and reliable digital support.</p>
-<div class="hero-actions"><a class="btn primary" href="#enquiry" data-mode="meeting">Book a Meeting <span aria-hidden="true">↗</span></a><a class="btn" href="#enquiry" data-mode="complaint">Submit a Complaint</a></div>
-</section>
-<section class="container section" aria-label="FIXBYTE INDIA highlights">
-<div class="stats">
-<div class="stat"><strong class="accent">1500+</strong><span>Happy Clients — our goal as we grow, one successful project at a time.</span></div>
-<div class="stat"><strong>24/7 Support</strong><span>Support requests can be submitted anytime through our client support channel.</span></div>
-<div class="stat"><strong>One Team</strong><span>From the first discussion to launch and ongoing improvements.</span></div>
-</div>
-</section>
-<section class="container section" id="services">
-<div class="section-head"><div class="kicker">What we do</div><h2>Digital services, handled with care.</h2><p>Practical solutions shaped around your business, your customers and the way you work.</p></div>
-<div class="cards">
-<article class="service"><span class="number">01 / WEB</span><h3>Website Design & Development</h3><p>Professional business websites, landing pages, redesigns and mobile-friendly experiences.</p></article>
-<article class="service"><span class="number">02 / SOFTWARE</span><h3>Custom Software & Apps</h3><p>Business tools, dashboards, portals and applications built around real workflows.</p></article>
-<article class="service"><span class="number">03 / COMMERCE</span><h3>E-commerce & Online Stores</h3><p>Product catalogues, online stores and customer enquiry journeys that are easy to use.</p></article>
-<article class="service"><span class="number">04 / AUTOMATION</span><h3>Business Automation</h3><p>Booking, CRM, billing and everyday processes organised into a smoother system.</p></article>
-<article class="service"><span class="number">05 / CREATIVE</span><h3>Digital Design & Content</h3><p>Brand creatives, social media assets and visual communication for your business.</p></article>
-<article class="service"><span class="number">06 / CARE</span><h3>Maintenance & Support</h3><p>Website updates, troubleshooting and practical help as your digital needs change.</p></article>
-</div>
-</section>
-<section class="container section" id="work">
-<div class="section-head"><div class="kicker">Selected work</div><h2>Built for real businesses.</h2><p>A couple of live project examples from our work.</p></div>
-<div class="projects">
-<article class="project"><h3>CMADD2 — Medical Distributor</h3><p>Business website with a clean layout and WhatsApp-based product enquiries.</p><a href="https://cmadd2.onrender.com" target="_blank" rel="noopener noreferrer">View project ↗</a></article>
-<article class="project"><h3>VTS Tour & Travels</h3><p>Travel website concept with vehicle information and customer enquiry options.</p><a href="https://vtstourandtravless.onrender.com" target="_blank" rel="noopener noreferrer">View project ↗</a></article>
-</div>
-</section>
-<section class="container section" id="enquiry">
-<div class="enquiry-wrap">
-<div class="enquiry-copy"><div class="kicker">Let's talk</div><h2 id="formHeading">Book a Meeting</h2><p id="formIntro">Tell us a little about your business and what you would like to build. Our team will review your request and contact you to discuss the next step.</p><p class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">7357204736</a><br><strong>Email:</strong> <a href="mailto:fixbytesupports@gmail.com">fixbytesupports@gmail.com</a></p></div>
-<div>
-<div class="mode-switch" role="group" aria-label="Choose request type">
-<button class="btn active" id="meetingMode" type="button" aria-pressed="true">Book a Meeting</button>
-<button class="btn" id="complaintMode" type="button" aria-pressed="false">Complaint</button>
-</div>
-<div class="form-card">
-<form id="clientRequestForm">
-<div class="form-grid">
+<section class="container hero" id="home"><div class="hero-grid">
+<div class="hero-copy"><div class="eyebrow">Your digital growth partner</div>
+<h1>We turn your ideas into <span>digital experiences.</span></h1>
+<p>From professional websites to custom software and business automation, FIXBYTE INDIA helps you build, improve and manage your digital presence with confidence.</p>
+<div class="hero-actions"><a class="btn primary" href="#contact">Book a Meeting <span>↗</span></a><a class="btn light" href="#services">Explore Our Services</a></div>
+<div class="hero-note"><span class="avatar-dots"><i></i><i></i><i></i><i></i></span><span>One team for design, development and digital support.</span></div></div>
+<div class="hero-art" aria-label="Digital services illustration"><div class="float-tag one">✦ Built around your business</div><div class="art-panel"><div class="art-top"><span>FIXBYTE / DIGITAL STUDIO</span><span class="art-dots"><i></i><i></i><i></i></span></div><div class="art-title">Make your next move digital.</div><div class="art-sub">Design · Development · Technology</div><div class="art-grid"><div class="art-tile dark"><strong>Websites</strong><span>Designed to make an impression</span></div><div class="art-tile"><strong>Software</strong><span>Built for the way you work</span></div></div><div class="art-bottom"><span>From idea to launch</span><b>Let's build ↗</b></div></div><div class="float-tag two">◈ Clean design. Useful technology.</div></div>
+</div></section>
+<section class="trust-strip"><div class="container trust-grid">
+<div class="trust-item"><div class="trust-icon">✦</div><div><strong>1500+ Happy Clients</strong><span>Building lasting client relationships</span></div></div>
+<div class="trust-item"><div class="trust-icon">◷</div><div><strong>24/7 Support</strong><span>Reach our support team anytime</span></div></div>
+<div class="trust-item"><div class="trust-icon">✓</div><div><strong>End-to-End Service</strong><span>From first conversation to ongoing care</span></div></div>
+</div></section>
+<section class="section container" id="about"><div class="about-grid">
+<div class="about-card"><div class="eyebrow">About FIXBYTE INDIA</div><strong>Technology should make business simpler.</strong><p>We focus on practical digital work that looks professional, works smoothly and helps businesses move forward.</p></div>
+<div class="about-copy"><div class="eyebrow">Who we are</div><h2>A digital team focused on real business needs.</h2><p>FIXBYTE INDIA brings design, development and technology together to create useful digital solutions. Whether you are starting from scratch or improving an existing system, we listen first and build around your requirements.</p><div class="check-list"><div class="check"><i>✓</i> Clear communication</div><div class="check"><i>✓</i> Mobile-friendly design</div><div class="check"><i>✓</i> Practical solutions</div><div class="check"><i>✓</i> Ongoing assistance</div></div></div>
+</div></section>
+<section class="section soft" id="services"><div class="container"><div class="section-head"><div class="eyebrow">Our services</div><h2>Everything you need to move your business forward.</h2><p>Choose one service or bring us a complete project. We shape the solution around your goals.</p></div>
+<div class="service-grid">
+<article class="service"><div class="service-icon">⌘</div><h3>Website Design & Development</h3><p>Modern business websites, landing pages and responsive web experiences that build trust.</p><a href="#contact">Discuss your website ↗</a></article>
+<article class="service"><div class="service-icon">▣</div><h3>Custom Software & Applications</h3><p>Business dashboards, portals and custom applications designed around your workflow.</p><a href="#contact">Discuss your software ↗</a></article>
+<article class="service"><div class="service-icon">▤</div><h3>E-commerce Solutions</h3><p>Online stores, product catalogues and customer enquiry journeys made simple.</p><a href="#contact">Build an online store ↗</a></article>
+<article class="service"><div class="service-icon">↗</div><h3>Business Automation</h3><p>Booking, CRM, billing and routine processes organised into efficient digital systems.</p><a href="#contact">Automate your business ↗</a></article>
+<article class="service"><div class="service-icon">✧</div><h3>Graphic Design & Branding</h3><p>Brand identity, social media creatives and visual assets that keep your business consistent.</p><a href="#contact">Create your brand ↗</a></article>
+<article class="service"><div class="service-icon">◎</div><h3>Maintenance & Technical Support</h3><p>Website updates, issue resolution and ongoing assistance as your business grows.</p><a href="#contact">Get support ↗</a></article>
+</div></div></section>
+<section class="section container"><div class="section-head"><div class="eyebrow">How we work</div><h2>A clear process. No unnecessary complications.</h2><p>We keep every project understandable, collaborative and focused on the result.</p></div><div class="process-grid">
+<div class="process"><b>01 / DISCOVER</b><h3>Understand your idea</h3><p>We discuss your business, audience, goals and required features.</p></div>
+<div class="process"><b>02 / PLAN</b><h3>Define the solution</h3><p>We agree on scope, approach, timeline and the next steps.</p></div>
+<div class="process"><b>03 / CREATE</b><h3>Design & develop</h3><p>We build, review and refine the work with your feedback.</p></div>
+<div class="process"><b>04 / LAUNCH</b><h3>Deliver & support</h3><p>We help launch the project and provide assistance after delivery.</p></div>
+</div></section>
+<section class="section soft" id="work"><div class="container"><div class="section-head"><div class="eyebrow">Selected projects</div><h2>Digital work made for real businesses.</h2><p>A look at projects connected with our development work.</p></div><div class="project-grid">
+<article class="project"><div class="project-visual"><div class="project-window"><span></span><span></span><i></i></div></div><div class="project-info"><h3>CMADD2 — Medical Distributor</h3><p>A business website with a clean product enquiry experience through WhatsApp.</p><a href="https://cmadd2.onrender.com" target="_blank" rel="noopener noreferrer">View live project ↗</a></div></article>
+<article class="project"><div class="project-visual dark"><div class="project-window"><span></span><span></span><i></i></div></div><div class="project-info"><h3>VTS Tour & Travels</h3><p>A travel website concept with service information and customer enquiry options.</p><a href="https://vtstourandtravless.onrender.com" target="_blank" rel="noopener noreferrer">View live project ↗</a></div></article>
+</div></div></section>
+<section class="section container" id="pricing"><div class="section-head"><div class="eyebrow">Plans & pricing</div><h2>Choose a starting point. We'll shape the details together.</h2><p>Every business has different requirements. Share your project details and we'll recommend a suitable package before work begins.</p></div>
+<div class="pricing-grid">
+<article class="price-card"><div class="plan-label">01 / Starter</div><h3>Business Website</h3><p>For businesses that need a professional online presence.</p><div class="price">From ₹1,999 <small>/ project</small></div><ul><li>Responsive website design</li><li>Business information pages</li><li>Contact and WhatsApp integration</li><li>Project scope confirmed before start</li></ul><a class="btn" href="#contact" data-service="Website Design & Development">Enquire Now ↗</a></article>
+<article class="price-card featured"><div class="plan-label">02 / Growth</div><h3>Software & Automation</h3><p>For teams that want to simplify daily business operations.</p><div class="price">Custom Quote</div><ul><li>Custom features and workflows</li><li>Dashboard and management tools</li><li>Business process automation</li><li>Scope-based development plan</li></ul><a class="btn primary" href="#contact" data-service="Custom Software & Applications">Enquire Now ↗</a></article>
+<article class="price-card"><div class="plan-label">03 / Advanced</div><h3>Complete Digital Solution</h3><p>For larger projects that need multiple connected services.</p><div class="price">Custom Quote</div><ul><li>Website and application planning</li><li>Custom integrations</li><li>Design and development support</li><li>Dedicated project discussion</li></ul><a class="btn" href="#contact" data-service="Complete Digital Solution">Enquire Now ↗</a></article>
+</div></section>
+<section class="section soft"><div class="container"><div class="section-head"><div class="eyebrow">Why work with us</div><h2>Professional work, with people you can talk to.</h2></div><div class="why-grid">
+<div class="why"><b>Designed for your business</b><p>We start with your requirements instead of forcing a one-size-fits-all solution.</p></div>
+<div class="why"><b>Simple communication</b><p>Clear discussions and updates help you understand what is happening at every stage.</p></div>
+<div class="why"><b>Support beyond launch</b><p>We can continue helping with updates, improvements and technical questions.</p></div>
+</div></div></section>
+<section class="section container"><div class="cta-band"><div><h2>Have an idea? Let's make it happen.</h2><p>Tell us what you want to build. We'll help you find the right next step.</p></div><a class="btn primary" href="#contact">Book a Meeting ↗</a></div></section>
+<section class="section container" id="contact"><div class="enquiry-grid">
+<div class="enquiry-copy"><div class="eyebrow">Start a project</div><h2>Book a Meeting</h2><p>Share your details and tell us what you have in mind. FIXBYTE INDIA will review your enquiry and contact you to discuss the project.</p><div class="contact-card"><div><strong>WhatsApp:</strong> <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">7357204736</a></div><div><strong>Email:</strong> <a href="mailto:fixbytesupports@gmail.com">fixbytesupports@gmail.com</a></div><div><strong>Support:</strong> <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">24/7 WhatsApp support</a></div></div></div>
+<div class="form-card"><form id="clientRequestForm"><div class="form-grid">
 <label class="field">Full name *<input name="name" required maxlength="100" autocomplete="name" placeholder="Your full name"></label>
 <label class="field">Mobile / WhatsApp *<input name="phone" required type="tel" maxlength="18" pattern="[+0-9 ()-]{8,18}" autocomplete="tel" placeholder="+91 XXXXX XXXXX"></label>
 <label class="field full">Email address *<input name="email" required type="email" maxlength="160" autocomplete="email" placeholder="you@example.com"></label>
 <label class="field full">Business / Project name<input name="business" maxlength="120" placeholder="Your business or project name"></label>
-<div class="conditional" id="meetingFields" style="display:contents">
-<label class="field">Meeting preference *<select name="meetingType" id="meetingType"><option value="">Select meeting type</option><option>Online meeting</option><option>Phone call</option><option>In-person meeting</option></select></label>
-<label class="field">Preferred date *<input type="date" name="date" id="meetingDate"></label>
-<label class="field">Preferred time *<select name="time" id="meetingTime"><option value="">Choose a time</option><option>10:00 AM – 12:00 PM</option><option>12:00 PM – 2:00 PM</option><option>2:00 PM – 4:00 PM</option><option>4:00 PM – 6:00 PM</option><option>6:00 PM – 8:00 PM</option></select></label>
-<label class="field">Service required *<select name="service" id="meetingService"><option value="">Choose a service</option><option>Website Design & Development</option><option>Custom Software / App</option><option>E-commerce / Online Store</option><option>Business Automation</option><option>Digital Design & Content</option><option>Maintenance & Support</option><option>Not sure yet</option></select></label>
-<div class="field full"><label class="field" for="meetingDetails">What would you like to discuss? *</label><textarea id="meetingDetails" name="details" maxlength="2500" placeholder="Share your idea, requirements or questions..."></textarea></div>
-</div>
-<div class="conditional" id="complaintFields" hidden>
-<label class="field">Complaint category *<select name="complaintType" id="complaintType"><option value="">Select the issue</option><option>Website not opening / hosting</option><option>Website error / bug</option><option>Design or mobile layout issue</option><option>Form / WhatsApp / button not working</option><option>Content or image update</option><option>Software / admin panel issue</option><option>Other</option></select></label>
-<label class="field">Priority *<select name="priority" id="complaintPriority"><option value="">Choose priority</option><option>Normal</option><option>Urgent</option></select></label>
-<label class="field full">Affected website / page link<input name="url" id="complaintUrl" type="url" maxlength="500" placeholder="https://example.com"></label>
-<div class="field full"><label class="field" for="complaintDetails">Describe the problem * </label><textarea name="details" id="complaintDetails" maxlength="2500" placeholder="Please explain what happened and what help you need."></textarea></div>
-</div>
-</div>
-<div class="form-actions"><button class="btn primary" id="requestSubmit" type="submit">Send Meeting Request ↗</button></div>
-<p class="form-note">Your request is not a confirmed appointment until our team contacts you. Please do not share passwords, OTPs or payment PINs.</p>
-<p id="formStatus" role="status" aria-live="polite"></p>
-</form>
-</div>
-</div>
-</div>
-</section>
+<label class="field full">Service required *<select name="service" id="serviceSelect" required><option value="">Choose a service</option><option>Website Design & Development</option><option>Custom Software & Applications</option><option>E-commerce Solutions</option><option>Business Automation</option><option>Graphic Design & Branding</option><option>Maintenance & Technical Support</option><option>Complete Digital Solution</option><option>Not sure yet — need guidance</option></select></label>
+<label class="field full">Project details *<textarea name="details" required maxlength="2500" placeholder="Tell us about your idea, requirements or questions..."></textarea></label>
+</div><button class="btn primary" type="submit">Send Enquiry on WhatsApp ↗</button><p class="form-note">Submitting this form opens WhatsApp with your enquiry details. Please review and press Send in WhatsApp. A meeting is confirmed only after our team contacts you. Never share passwords, OTPs or payment PINs.</p><p id="formStatus" role="status" aria-live="polite"></p></form></div>
+</div></section>
+<section class="section soft" id="faq"><div class="container"><div class="section-head"><div class="eyebrow">FAQs</div><h2>Questions, answered.</h2><p>A few things clients often ask before starting a project.</p></div><div class="faq-list">
+<details><summary>What services does FIXBYTE INDIA provide?</summary><p>We work on website design and development, custom software, e-commerce, business automation, graphic design and technical support.</p></details>
+<details><summary>How do I get a project quote?</summary><p>Use the Book a Meeting form and share your requirements. We'll review the scope and discuss a suitable estimate with you.</p></details>
+<details><summary>Will my website work on mobile phones?</summary><p>Yes. Responsive layouts are part of our website design approach, so pages are designed to adapt to mobile, tablet and desktop screens.</p></details>
+<details><summary>Can you update or maintain an existing website?</summary><p>Yes. Share your current website link and the changes or issues you need help with so we can review the work.</p></details>
+<details><summary>When is a meeting confirmed?</summary><p>Your enquiry is a request, not a confirmed appointment. Our team will contact you to agree on the meeting details.</p></details>
+</div></div></section>
 </main>
-<footer><div class="container footer-inner"><span>© 2026 FIXBYTE INDIA</span><span>Designed with care for real businesses.</span><span><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms & Conditions</a> · <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></span></div></footer>
+<footer><div class="container"><div class="footer-top"><a class="brand" href="#home"><span class="brand-mark">F</span><span>FIXBYTE<small>INDIA</small></span></a><div class="footer-links"><a href="#about">About</a><a href="#services">Services</a><a href="#work">Projects</a><a href="#contact">Contact</a><a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div><div class="footer-bottom"><span>© 2026 FIXBYTE INDIA. All rights reserved.</span><span><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms & Conditions</a></span></div></div></footer>
 <script>
 (function(){
-const form=document.getElementById('clientRequestForm');
-const meetingBtn=document.getElementById('meetingMode');
-const complaintBtn=document.getElementById('complaintMode');
-const meetingFields=document.getElementById('meetingFields');
-const complaintFields=document.getElementById('complaintFields');
-const heading=document.getElementById('formHeading');
-const intro=document.getElementById('formIntro');
-const submit=document.getElementById('requestSubmit');
-const status=document.getElementById('formStatus');
-let mode='meeting';
-const meetingRequired=['meetingType','meetingDate','meetingTime','meetingService','meetingDetails'];
-const complaintRequired=['complaintType','complaintPriority','complaintDetails'];
-function setMode(next){
- mode=next;
- const isMeeting=mode==='meeting';
- meetingBtn.classList.toggle('active',isMeeting);
- complaintBtn.classList.toggle('active',!isMeeting);
- meetingBtn.setAttribute('aria-pressed',String(isMeeting));
- complaintBtn.setAttribute('aria-pressed',String(!isMeeting));
- meetingFields.hidden=!isMeeting;
- meetingFields.style.display=isMeeting?'contents':'none';
- complaintFields.hidden=isMeeting;
- complaintFields.style.display=isMeeting?'none':'contents';
- meetingRequired.forEach(id=>document.getElementById(id).required=isMeeting);
- complaintRequired.forEach(id=>document.getElementById(id).required=!isMeeting);
- heading.textContent=isMeeting?'Book a Meeting':'Submit a Complaint';
- intro.textContent=isMeeting?'Tell us a little about your business and what you would like to build. Our team will review your request and contact you to discuss the next step.':'Share the issue you are facing with your website or project. Our team will review the complaint and contact you with an update.';
- submit.textContent=isMeeting?'Send Meeting Request ↗':'Submit Complaint ↗';
- status.textContent='';
-}
-meetingBtn.addEventListener('click',()=>setMode('meeting'));
-complaintBtn.addEventListener('click',()=>setMode('complaint'));
-document.querySelectorAll('[data-mode]').forEach(link=>link.addEventListener('click',()=>setMode(link.dataset.mode)));
-const localDate=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10);};
-const dateInput=document.getElementById('meetingDate');
-dateInput.min=localDate();
+const menu=document.getElementById('menuToggle'),nav=document.getElementById('navLinks');
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';}));
+document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('serviceSelect').value=a.dataset.service;}));
+const form=document.getElementById('clientRequestForm'),status=document.getElementById('formStatus');
 form.addEventListener('submit',async function(e){
-e.preventDefault();
-dateInput.min=localDate();
-if(!form.reportValidity())return;
-const f=new FormData(form);
-const now=new Date();
+e.preventDefault();if(!form.reportValidity())return;
+const f=new FormData(form),now=new Date();
 const stamp=now.getFullYear().toString().slice(-2)+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0');
-const ref=(mode==='meeting'?'FB-MTG-':'FB-CMP-')+stamp+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
-let lines=[];
-let lead={name:f.get('name'),phone:f.get('phone'),email:f.get('email'),business:f.get('business'),requirements:f.get('details')};
-let action='meeting';
-if(mode==='meeting'){
-lines=['FIXBYTE INDIA — MEETING REQUEST','Meeting ID: '+ref,'Name: '+f.get('name'),'Mobile: '+f.get('phone'),'Email: '+f.get('email'),'Business / Project: '+(f.get('business')||'Not provided'),'Meeting type: '+f.get('meetingType'),'Preferred date: '+f.get('date'),'Preferred time: '+f.get('time'),'Service: '+f.get('service'),'Requirements: '+f.get('details'),'Please contact me to confirm the meeting.'];
-lead.meetingId=ref;lead.meetingType=f.get('meetingType');lead.date=f.get('date');lead.time=f.get('time');lead.plan=f.get('service');lead.websiteType=f.get('service');
-}else{
-action='complaint';
-lines=['FIXBYTE INDIA — CLIENT COMPLAINT','Complaint ID: '+ref,'Name: '+f.get('name'),'Mobile: '+f.get('phone'),'Email: '+f.get('email'),'Business / Project: '+(f.get('business')||'Not provided'),'Complaint category: '+f.get('complaintType'),'Priority: '+f.get('priority'),'Affected link: '+(f.get('url')||'Not provided'),'Problem details: '+f.get('details'),'Submitted: '+now.toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})+' IST','Please review this complaint and share an update.'];
-lead.meetingId=ref;lead.plan='Client Complaint';lead.websiteType=f.get('complaintType');lead.features='Priority: '+f.get('priority')+'; Affected URL: '+(f.get('url')||'Not provided');lead.timeline=f.get('priority');lead.source='complaint_form';
-}
-const whatsapp='https://wa.me/917357204736?text='+encodeURIComponent(lines.join('\n'));
-window.open(whatsapp,'_blank','noopener,noreferrer');
-status.textContent=(mode==='meeting'?'Meeting request':'Complaint')+' ID: '+ref+'. WhatsApp khul gaya hai—message SEND karein. Request confirmation ke liye FIXBYTE INDIA team ka reply zaroori hai.';
-try{
-const response=await fetch('/api/maya',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,lead})});
-if(response.ok){const result=await response.json();if(result.saved)status.textContent+=' Reference securely saved.';}
-}catch(err){/* WhatsApp remains the direct submission channel if database service is unavailable. */}
+const ref='FB-ENQ-'+stamp+'-'+Math.random().toString(36).slice(2,7).toUpperCase();
+const lines=['FIXBYTE INDIA — NEW PROJECT ENQUIRY','Enquiry ID: '+ref,'Name: '+f.get('name'),'Mobile: '+f.get('phone'),'Email: '+f.get('email'),'Business / Project: '+(f.get('business')||'Not provided'),'Service: '+f.get('service'),'Project details: '+f.get('details'),'Submitted: '+now.toLocaleString('en-IN',{timeZone:'Asia/Kolkata'})+' IST'];
+const lead={name:f.get('name'),phone:f.get('phone'),email:f.get('email'),business:f.get('business'),requirements:f.get('details'),meetingId:ref,plan:f.get('service'),websiteType:f.get('service'),source:'website_enquiry'};
+const wa='https://wa.me/917357204736?text='+encodeURIComponent(lines.join('\n'));
+window.open(wa,'_blank','noopener,noreferrer');
+status.textContent='Enquiry ID: '+ref+'. WhatsApp opened — please press Send to submit your enquiry.';
+try{const response=await fetch('/api/maya',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'meeting',lead})});if(response.ok){const result=await response.json();if(result.saved)status.textContent+=' Your enquiry reference was also saved.';}}catch(err){/* WhatsApp is the direct enquiry channel if the optional save service is unavailable. */}
 });
-setMode('meeting');
 })();
 </script>
 </body>
