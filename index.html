@@ -372,6 +372,19 @@ body.light .foot a{color:#0866ff}
 }
 @media(prefers-reduced-motion:reduce){body.light .card,body.light .btn,body.light .pill{transition:none!important}}
 
+
+/* Complete digital services section */
+.all-services{margin:28px 0;padding:clamp(22px,4vw,38px);background:linear-gradient(135deg,rgba(66,232,197,.055),rgba(182,160,255,.10),var(--panel))}
+.services-intro{max-width:780px;color:var(--muted);line-height:1.8}
+.services-grid{grid-template-columns:repeat(auto-fit,minmax(245px,1fr));margin-bottom:22px}
+.service-card{min-height:100%;padding:22px;background:rgba(255,255,255,.045)}
+.service-card h3{line-height:1.3}
+.service-card ul{padding-left:19px;margin:14px 0 0;color:var(--muted);font-size:13px;line-height:1.7}
+.service-card li{margin:5px 0}
+.services-note{padding:17px 19px;border:1px solid rgba(66,232,197,.28);border-radius:16px;background:rgba(66,232,197,.055);color:var(--muted);font-size:13px;line-height:1.75}
+.services-note strong{color:var(--text)}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr}.service-card{padding:19px}}
+
 </style><script src="https://checkout.razorpay.com/v1/checkout.js"></script></head>
 <body class="light"><main class="wrap">
 <nav class="nav"><a class="brand-logo" href="#top" aria-label="FIXBYTE INDIA home">
@@ -382,8 +395,8 @@ body.light .foot a{color:#0866ff}
 <path d="M88 208V112L138 62V208Z" fill="none" stroke="url(#brandMetal)" stroke-width="10" stroke-linejoin="miter"/>
 <path d="M12 208H138" fill="none" stroke="currentColor" stroke-width="8"/>
 </svg>
-<span class="brand-wording"><strong>FIXBYTE</strong><small>INDIA</small></span></a><a class="pill" href="#creative-studio">Creative Studio</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">☾ Dark mode</button><a class="pill" href="https://wa.me/917357204736?text=Hi%20FIXBYTE%20INDIA%2C%20I%20want%20to%20discuss%20a%20project">Let's Talk ↗</a></nav>
-<section class="hero"><span class="eyebrow">Digital ideas · Real results</span><h1>Build your next big idea with <span class="gradient">FIXBYTE INDIA.</span></h1><p>Modern websites and digital experiences designed around your business goals—from a professional online presence to custom web applications.</p><div class="actions"><a class="btn primary" href="https://wa.me/917357204736?text=Hi%20FIXBYTE%20INDIA%2C%20I%20want%20a%20website">Discuss your project ↗</a><a class="btn" href="mailto:fixbytesupports@gmail.com">Email us</a></div></section>
+<span class="brand-wording"><strong>FIXBYTE</strong><small>INDIA</small></span></a><a class="pill" href="#services">All Services</a><a class="pill" href="#creative-studio">Creative Studio</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">☾ Dark mode</button><a class="pill" href="https://wa.me/917357204736?text=Hi%20FIXBYTE%20INDIA%2C%20I%20want%20to%20discuss%20a%20project">Let's Talk ↗</a></nav>
+<section class="hero"><span class="eyebrow">Digital ideas · Real results</span><h1>Build your next big idea with <span class="gradient">FIXBYTE INDIA.</span></h1><p>Your complete digital growth partner. FIXBYTE INDIA brings websites, custom software, digital marketing, branding, creative production and ongoing business technology support together under one roof.</p><div class="actions"><a class="btn primary" href="https://wa.me/917357204736?text=Hi%20FIXBYTE%20INDIA%2C%20I%20want%20a%20website">Discuss your project ↗</a><a class="btn" href="mailto:fixbytesupports@gmail.com">Email us</a></div></section>
 <section class="card join-card" id="join-fixbyte">
 <div class="join-orbit" aria-hidden="true"></div>
 <div class="join-topline"><span class="join-live"></span> FIXBYTE INDIA · INNER CIRCLE</div>
@@ -488,8 +501,23 @@ body.light .foot a{color:#0866ff}
 <article class="card"><div class="icon">💊</div><h3>CMADD2 — Medical Distributor</h3><p>Medical wholesale website project preview.</p><div class="actions"><a class="btn" href="https://cmadd2.onrender.com" target="_blank" rel="noopener">Open demo ↗</a></div></article>
 <article class="card"><div class="icon">✦</div><h3>Custom Business Website</h3><p>Discuss a custom portfolio, booking system, catalog or web app for your business.</p><div class="actions"><a class="btn" href="https://wa.me/917357204736?text=Please%20show%20me%20more%20FIXBYTE%20website%20demos">Request demos ↗</a></div></article>
 </div></section>
-<section class="card" id="about"><span class="eyebrow">About FIXBYTE INDIA</span><div class="about-row"><img class="about-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=85" alt="Stylish young man portrait representing a modern tech creator" loading="lazy"><div><h2>Technology with a human touch.</h2><p>FIXBYTE INDIA helps businesses turn ideas into practical digital experiences—business websites, custom web apps, product catalogs, booking flows and ongoing support. We focus on clear communication, thoughtful design and solutions shaped around each client's goals.</p><p class="note">Portrait is illustrative stock photography, not an actual team-member photo.</p><div class="actions"><a class="btn primary" href="#meeting">Meet with us</a></div></div></div></section>
-<section><h2 class="section-title">What we build</h2><div class="grid">
+<section class="card" id="about"><span class="eyebrow">About FIXBYTE INDIA</span><div class="about-row"><img class="about-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=85" alt="Stylish young man portrait representing a modern tech creator" loading="lazy"><div><h2>Technology with a human touch.</h2><p>FIXBYTE INDIA helps businesses manage their digital presence end to end—from websites and custom software to marketing, branding, creative content and ongoing technical support. We plan each project around the client’s goals, explain the scope clearly and coordinate specialist partners when a service requires them.</p><p class="note">Portrait is illustrative stock photography, not an actual team-member photo.</p><div class="actions"><a class="btn primary" href="#meeting">Meet with us</a></div></div></div></section>
+<section id="services" class="card all-services">
+  <span class="eyebrow">One partner · Complete digital work</span>
+  <h2 class="section-title">Everything your business needs to grow digitally.</h2>
+  <p class="services-intro">From your first website to daily digital operations, FIXBYTE INDIA can plan, build and manage the right digital services for your business. Choose one service or bring your complete digital work to one team.</p>
+  <div class="grid services-grid">
+    <article class="card service-card"><div class="icon">🌐</div><h3>Website & Web Development</h3><p>Professional business websites, landing pages, e-commerce stores, product catalogues, customer portals, booking websites and website redesigns.</p><ul><li>Mobile-friendly design and responsive pages</li><li>Enquiry forms, WhatsApp links and integrations</li><li>Domain, hosting setup and deployment support</li></ul></article>
+    <article class="card service-card"><div class="icon">⚙️</div><h3>Software & Business Automation</h3><p>Custom tools that reduce manual work and help your team manage business operations.</p><ul><li>Billing, CRM, ERP and inventory solutions</li><li>Admin dashboards, reports and user roles</li><li>Booking, lead and workflow automation</li><li>WhatsApp and third-party integrations</li></ul></article>
+    <article class="card service-card"><div class="icon">📈</div><h3>Digital Marketing & Growth</h3><p>Build awareness, reach potential customers and improve your online presence.</p><ul><li>Social media planning and account management</li><li>Instagram, Facebook and Google Ads campaign support</li><li>SEO and Google Business Profile optimisation</li><li>Content calendars and campaign reporting</li></ul></article>
+    <article class="card service-card"><div class="icon">✦</div><h3>Branding & Graphic Design</h3><p>Create a consistent and professional identity for your business.</p><ul><li>Logo and visual brand identity</li><li>Posters, banners, brochures and business cards</li><li>Product catalogues and promotional creatives</li><li>Social media templates and campaign designs</li></ul></article>
+    <article class="card service-card"><div class="icon">🧩</div><h3>Digital Business Management</h3><p>Bring customer communication and everyday digital processes into a more organised system.</p><ul><li>Online enquiries and lead management</li><li>Customer support and complaint workflows</li><li>Online appointments and booking systems</li><li>Digital catalogues and business process setup</li></ul></article>
+    <article class="card service-card"><div class="icon">🛡️</div><h3>IT, Maintenance & Technical Support</h3><p>Keep your digital systems maintained, backed up and supported as your business changes.</p><ul><li>Website maintenance and content updates</li><li>Security checks, backups and recovery planning</li><li>Software updates and troubleshooting</li><li>Domain, hosting and technical coordination</li></ul></article>
+  </div>
+  <div class="services-note"><strong>How we work:</strong> One-time projects, monthly management retainers or custom business packages. Every project gets a written scope, timeline and quotation before work begins. Third-party subscriptions, ad spend, hosting upgrades and specialist-partner fees are quoted separately where applicable.</div>
+  <div class="actions"><a class="btn primary" href="https://wa.me/917357204736?text=Hi%20FIXBYTE%20INDIA%2C%20I%20want%20to%20discuss%20complete%20digital%20services%20for%20my%20business.%20Please%20guide%20me." target="_blank" rel="noopener noreferrer">Manage my digital work ↗</a><a class="btn" href="#meeting">Request a consultation</a></div>
+</section>
+<section><h2 class="section-title">Core digital delivery</h2><div class="grid">
 <article class="card"><div class="icon">✦</div><h3>Business Websites</h3><p>Responsive, polished websites that help customers discover and trust your business.</p></article>
 <article class="card"><div class="icon">⌘</div><h3>Custom Web Apps</h3><p>Purpose-built dashboards, booking flows and business tools shaped around your workflow.</p></article>
 <article class="card"><div class="icon">▦</div><h3>E-commerce & Catalogs</h3><p>Showcase products, capture enquiries and make it easier for customers to connect.</p></article>
