@@ -3,10 +3,22 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="FIXBYTE INDIA Privacy Policy explaining personal data collection, use, sharing, security and user choices.">
-<meta name="robots" content="index,follow"><meta name="theme-color" content="#07111f">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#ffffff">
 <title>Privacy Policy | FIXBYTE INDIA</title>
 <style>
-:root{color-scheme:dark;--bg:#07111f;--panel:#101d30;--line:#2b3a50;--text:#eef5ff;--muted:#bac6d7;--accent:#42e8c5}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#24225a 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.75 Inter,system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:900px;margin:auto;padding:24px}.nav{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.logo{font-size:22px;font-weight:900;text-decoration:none;color:var(--text)}.logo span{color:var(--accent)}a{color:var(--accent)}.back{border:1px solid var(--line);padding:8px 13px;border-radius:999px;text-decoration:none}.hero{padding:35px 0 15px}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px;font-weight:800}h1{font-size:clamp(34px,7vw,54px);line-height:1.1;margin:10px 0}h2{font-size:22px;margin-top:30px}p,li{color:var(--muted)}.panel{border:1px solid var(--line);background:#ffffff08;border-radius:18px;padding:20px;margin:20px 0}.footer{border-top:1px solid var(--line);padding:22px 0;margin-top:40px;color:var(--muted);font-size:14px}
+:root{color-scheme:light;--bg:#fff;--line:#e7e8ee;--text:#171923;--muted:#626775;--accent:#6d45d9;--soft:#f7f7fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.75 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:900px;margin:auto;padding:24px}.nav{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding:8px 0 18px;border-bottom:1px solid var(--line)}
+.logo{font-size:22px;font-weight:850;letter-spacing:-.7px;text-decoration:none;color:#171923}.logo span{color:var(--accent)}a{color:var(--accent)}
+.back{border:1px solid var(--line);padding:8px 14px;border-radius:9px;text-decoration:none;color:#303341;font-weight:600}
+.hero{padding:35px 0 15px}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px;font-weight:800}
+h1{font-size:clamp(34px,7vw,52px);letter-spacing:-1.8px;line-height:1.12;margin:10px 0}h2{font-size:20px;letter-spacing:-.3px;margin:30px 0 6px}
+p,li{color:var(--muted)}.panel{border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:20px;margin:20px 0;color:#343744}
+.agree-panel{margin-top:38px;padding:24px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 8px 30px #1719230a}
+.agree-panel p{margin:5px 0 18px}.agree-btn{display:inline-flex;align-items:center;justify-content:center;min-width:190px;padding:13px 22px;border:0;border-radius:9px;background:var(--accent);color:#fff;font:700 15px Inter,system-ui,sans-serif;cursor:pointer}
+.agree-btn:hover{background:#5934c2}.agree-btn:disabled{opacity:.75;cursor:default}.agree-note{font-size:13px;margin-top:12px!important}
+.footer{border-top:1px solid var(--line);padding:22px 0;margin-top:32px;color:var(--muted);font-size:14px}
+@media(max-width:600px){.wrap{padding:18px}.agree-btn{width:100%}}
 </style></head><body><main class="wrap">
 <nav class="nav"><a class="logo" href="/"><span>FIX</span>BYTE <span>INDIA</span></a><a class="back" href="/">← Back to website</a></nav>
 <header class="hero"><div class="eyebrow">YOUR DATA · YOUR CHOICES</div><h1>Privacy Policy</h1><p>Last updated: 28 October 2026</p><p>This policy explains how FIXBYTE INDIA (“FIXBYTE”, “we”, “us”) handles personal data when you visit our website, enquire about services, request a meeting, submit a review or complaint, create a join ID, or make a payment.</p></header>
@@ -22,5 +34,7 @@
 <h2>9. Third-party links and services</h2><p>Our site may link to WhatsApp, payment services, social platforms or other third-party sites. Their handling of information is governed by their own policies, not this policy. Review those policies before using the services.</p>
 <h2>10. Your requests and complaints</h2><p>You can contact us to ask about the personal data we hold, request correction or deletion, withdraw consent where applicable, or raise a privacy concern. We may ask for reasonable verification before acting. We aim to respond within a reasonable time and any applicable legal deadline. You may also have rights or remedies under applicable Indian law.</p>
 <h2>11. Changes to this policy</h2><p>We may update this policy when our services, systems or legal requirements change. The revised version will be posted on this page with an updated date. Please check it periodically.</p>
+<section class="agree-panel" aria-labelledby="privacyReadHeading"><h2 id="privacyReadHeading">Your acknowledgement</h2><p>Please read this Privacy Policy. Select the button to acknowledge that you have read it. This acknowledgement is not a substitute for any separate consent that may be required for a specific service.</p><button class="agree-btn" id="privacyAgreeButton" type="button">I’ve Read the Privacy Policy</button><p class="agree-note" id="privacyAgreeNote">Your acknowledgement will be saved on this device.</p></section>
 <div class="footer">© 2026 FIXBYTE INDIA · <a href="/terms.html">Terms & Conditions</a> · <a href="mailto:fixbytesupports@gmail.com">Privacy support</a></div>
+<script>document.getElementById('privacyAgreeButton').addEventListener('click',function(){try{localStorage.setItem('fixbyte_privacy_acknowledged','yes')}catch(e){}this.textContent='Acknowledged';this.disabled=true;document.getElementById('privacyAgreeNote').textContent='Thank you. Your acknowledgement has been saved on this device.';});</script>
 </main></body></html>
