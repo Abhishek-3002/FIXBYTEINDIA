@@ -197,7 +197,19 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 @media(max-width:1000px){.forms-pair{grid-template-columns:1fr}}
 @media(max-width:720px){.nav-actions{display:none}.hero-actions .btn{width:auto}.forms-pair{grid-template-columns:1fr}.forms-pair .form-card{padding:18px}}
 
-\n/* Official FIXBYTE INDIA logo: optimized for the white and purple theme. */\n.logo-brand{display:inline-flex;align-items:center;flex:0 0 auto;width:220px;height:72px;gap:0}\n.logo-brand img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}\n.footer-logo{width:200px;height:66px}\n@media(max-width:520px){.logo-brand{width:176px;height:58px}.footer-logo{width:190px;height:62px}}\n</style>
+\n/* Official FIXBYTE INDIA logo: optimized for the white and purple theme. */\n.logo-brand{display:inline-flex;align-items:center;flex:0 0 auto;width:220px;height:72px;gap:0}\n.logo-brand img{display:block;width:100%;height:100%;object-fit:contain;object-position:left center}\n.footer-logo{width:200px;height:66px}\n@media(max-width:520px){.logo-brand{width:176px;height:58px}.footer-logo{width:190px;height:62px}}\n
+/* February 2027 countdown banner */
+.feb-countdown{background:linear-gradient(110deg,#f5f1ff 0%,#fff 52%,#f5f1ff 100%);border-bottom:1px solid #e7defa;padding:14px 18px}
+.feb-countdown-inner{width:min(1160px,calc(100% - 34px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.feb-countdown-copy strong{display:block;font:800 14px Manrope,sans-serif;color:#382477;letter-spacing:.1px}
+.feb-countdown-copy span{display:block;color:#656978;font-size:11px;margin-top:3px}
+.feb-countdown-units{display:flex;gap:8px;flex-wrap:wrap}
+.feb-countdown-unit{min-width:62px;text-align:center;background:#fff;border:1px solid #e5def8;border-radius:9px;padding:7px 9px;box-shadow:0 3px 10px #39227a0c}
+.feb-countdown-number{display:block;font:800 20px Manrope,sans-serif;color:#6946d4;font-variant-numeric:tabular-nums}
+.feb-countdown-label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:#777184;margin-top:1px}
+@media(max-width:600px){.feb-countdown{padding:12px 0}.feb-countdown-inner{width:calc(100% - 28px);display:block;text-align:center}.feb-countdown-units{justify-content:center;margin-top:10px;gap:6px}.feb-countdown-unit{min-width:58px;padding:6px 7px}.feb-countdown-number{font-size:18px}.feb-countdown-copy strong{font-size:13px}}
+
+</style>
 </head>
 <body>
 <div class="topline"><div class="container"><span class="hide-mobile">Thoughtful digital solutions for businesses that want to grow.</span><span>Need help? <a href="https://wa.me/917357204736" target="_blank" rel="noopener noreferrer">Chat with FIXBYTE INDIA ↗</a></span></div></div>
@@ -207,6 +219,19 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-s
 <div class="nav-actions"><a class="btn light plans-nav" href="#pricing"><span aria-hidden="true">✦</span> View Plans</a><a class="btn" href="#complaint">Complaint</a><a class="btn" href="tel:+917357204736">Call Now</a><a class="btn primary" href="#contact">Book a Meeting <span>↗</span></a></div>
 <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 </div></header>
+
+<section class="feb-countdown" id="february2027Countdown" aria-label="February 2027 countdown">
+ <div class="feb-countdown-inner">
+  <div class="feb-countdown-copy"><strong>⏳ February 2027 Countdown</strong><span id="febCountdownMessage">Countdown to 1 February 2027 · 12:00 AM IST</span></div>
+  <div class="feb-countdown-units" aria-live="off">
+   <div class="feb-countdown-unit"><span class="feb-countdown-number" id="febDays">--</span><span class="feb-countdown-label">Days</span></div>
+   <div class="feb-countdown-unit"><span class="feb-countdown-number" id="febHours">--</span><span class="feb-countdown-label">Hours</span></div>
+   <div class="feb-countdown-unit"><span class="feb-countdown-number" id="febMinutes">--</span><span class="feb-countdown-label">Minutes</span></div>
+   <div class="feb-countdown-unit"><span class="feb-countdown-number" id="febSeconds">--</span><span class="feb-countdown-label">Seconds</span></div>
+  </div>
+ </div>
+</section>
+
 <main>
 <section class="container hero" id="home"><div class="hero-grid">
 <div class="hero-copy"><div class="eyebrow">Your digital growth partner</div>
@@ -338,6 +363,23 @@ status.textContent='Enquiry ID: '+ref+'. WhatsApp opened — please press Send t
 try{const response=await fetch('/api/maya',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'meeting',lead})});if(response.ok){const result=await response.json();if(result.saved)status.textContent+=' Your enquiry reference was also saved.';}}catch(err){/* WhatsApp is the direct enquiry channel if the optional save service is unavailable. */}
 });
 })();
+
+/* FIXBYTE INDIA February 2027 live countdown (IST) */
+(function(){
+ const root=document.getElementById('february2027Countdown');if(!root)return;
+ const target=new Date('2027-02-01T00:00:00+05:30').getTime();
+ const el={days:document.getElementById('febDays'),hours:document.getElementById('febHours'),minutes:document.getElementById('febMinutes'),seconds:document.getElementById('febSeconds'),message:document.getElementById('febCountdownMessage')};
+ function update(){
+  const left=Math.max(0,target-Date.now()),total=Math.floor(left/1000);
+  el.days.textContent=Math.floor(total/86400);
+  el.hours.textContent=String(Math.floor(total%86400/3600)).padStart(2,'0');
+  el.minutes.textContent=String(Math.floor(total%3600/60)).padStart(2,'0');
+  el.seconds.textContent=String(total%60).padStart(2,'0');
+  if(left<=0){el.message.textContent='February 2027 has arrived!';clearInterval(timer);}
+ }
+ update();const timer=setInterval(update,1000);
+})();
+
 </script>
 </body>
 </html>
